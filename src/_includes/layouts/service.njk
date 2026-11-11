@@ -1,0 +1,70 @@
+---
+layout: layouts/base.njk
+---
+{% block schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "{{ title }}",
+  "serviceType": "{{ serviceType or title }}",
+  "provider": { "@id": "{{ site.url }}/#business" },
+  "areaServed": "Melbourne, VIC, Australia",
+  "description": "{{ metaDescription }}"
+}
+</script>
+{% if faqs %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {%- for f in faqs %}
+    { "@type": "Question", "name": {{ f.q | dump | safe }}, "acceptedAnswer": { "@type": "Answer", "text": {{ f.a | dump | safe }} } }{% if not loop.last %},{% endif %}
+    {%- endfor %}
+  ]
+}
+</script>
+{% endif %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "{{ site.url }}/" },
+    { "@type": "ListItem", "position": 2, "name": "Services", "item": "{{ site.url }}/services/" },
+    { "@type": "ListItem", "position": 3, "name": "{{ title }}", "item": "{{ site.url }}{{ page.url }}" }
+  ]
+}
+</script>
+{% endblock %}
+<div class="page-hero">
+  <div class="container">
+    <p class="crumb"><a href="/">Home</a> / <a href="/services/">Services</a> / {{ title }}</p>
+    <h1>{{ heading or title }}</h1>
+    {% if lede %}<p class="lede">{{ lede }}</p>{% endif %}
+  </div>
+</div>
+<div class="section">
+  <div class="container prose">
+    {{ content | safe }}
+  </div>
+</div>
+{% if faqs %}
+<div class="section section-alt">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker">FAQs</p>
+      <h2>{{ title }} — common questions</h2>
+    </div>
+    <div class="faq" style="max-width:760px">
+      {% for f in faqs %}
+      <details{% if loop.first %} open{% endif %}>
+        <summary>{{ f.q }}</summary>
+        <p>{{ f.a }}</p>
+      </details>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endif %}

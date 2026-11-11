@@ -1,0 +1,57 @@
+---
+layout: layouts/page.njk
+title: Contact
+heading: Get a free, no-obligation quote
+crumb: Contact
+lede: Tell us about your home and your bills — we'll design the right system and give you a fixed written quote.
+metaTitle: Contact Gigawatt Energy — Free Solar & Battery Quotes Melbourne
+metaDescription: "Get a free solar, battery or EV charger quote from Gigawatt Energy, Mickleham VIC. Call 0451 644 220 — family-run, SAA-accredited, serving Melbourne."
+permalink: /contact/
+---
+<section class="section">
+  <div class="container grid grid-2" style="gap:3rem;align-items:start">
+    <div>
+      <h2 style="margin-bottom:1rem">Request a quote</h2>
+      <!-- TODO before launch: point this form at the live endpoint (Formspree / Cloudflare Worker / CRM webhook) and test a real submission -->
+      <form class="form-grid" method="POST" action="#" data-form="quote">
+        <div><label for="name">Name</label><input id="name" name="name" type="text" autocomplete="name" required></div>
+        <div><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel" required></div>
+        <div><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+        <div><label for="suburb">Suburb</label><input id="suburb" name="suburb" type="text" required></div>
+        <div>
+          <label for="service">What are you interested in?</label>
+          <select id="service" name="service">
+            <option>Solar panel installation</option>
+            <option>Solar + battery with backup</option>
+            <option>Battery retrofit (existing solar)</option>
+            <option>EV charger installation</option>
+            <option>Switchboard upgrade</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div><label for="message">Anything else we should know?</label><textarea id="message" name="message" rows="4"></textarea></div>
+        <div><button class="btn btn-accent" type="submit">Send enquiry</button></div>
+        <p class="form-note">We only use your details to respond to your enquiry. See our <a href="/privacy/">privacy policy</a>.</p>
+      </form>
+    </div>
+    <div>
+      <h2 style="margin-bottom:1rem">Talk to us directly</h2>
+      <div class="card" style="margin-bottom:1rem">
+        <h3>Phone</h3>
+        <p><a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a> — {{ site.hours }}</p>
+      </div>
+      <div class="card" style="margin-bottom:1rem">
+        <h3>Email</h3>
+        <p><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+      </div>
+      <div class="card" style="margin-bottom:1rem">
+        <h3>Based in</h3>
+        <p>{{ site.address.suburb }}, {{ site.address.locality }} {{ site.address.region }} {{ site.address.postcode }}</p>
+      </div>
+      <div class="card">
+        <h3>Service areas</h3>
+        <p>{% for a in site.serviceAreas %}{{ a }}{% if not loop.last %} · {% endif %}{% endfor %}</p>
+      </div>
+    </div>
+  </div>
+</section>

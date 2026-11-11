@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ metaTitle or title }} | {{ site.name }}</title>
+  <meta name="description" content="{{ metaDescription or site.description }}">
+  {%- if not site.production %}
+  <meta name="robots" content="noindex, nofollow">
+  {%- endif %}
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="{{ ogType or 'website' }}">
+  <meta property="og:site_name" content="{{ site.name }}">
+  <meta property="og:title" content="{{ metaTitle or title }} | {{ site.name }}">
+  <meta property="og:description" content="{{ metaDescription or site.description }}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:locale" content="en_AU">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "{{ site.url }}/#business",
+    "name": "{{ site.name }}",
+    "legalName": "{{ site.legalName }}",
+    "url": "{{ site.url }}",
+    "telephone": "{{ site.phone }}",
+    "email": "{{ site.email }}",
+    "foundingDate": "{{ site.founded }}",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "{{ site.address.locality }}",
+      "addressRegion": "{{ site.address.region }}",
+      "postalCode": "{{ site.address.postcode }}",
+      "addressCountry": "{{ site.address.country }}"
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "08:00",
+      "closes": "17:00"
+    },
+    "areaServed": [{% for a in site.serviceAreas %}{"@type":"Place","name":"{{ a }}, VIC"}{% if not loop.last %},{% endif %}{% endfor %}],
+    "sameAs": ["{{ site.social.facebook }}","{{ site.social.instagram }}","{{ site.social.tiktok }}"]
+  }
+  </script>
+  {% block schema %}{% endblock %}
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="/" class="logo" aria-label="{{ site.name }} home">
+      <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><path d="M19 2 6 19h8l-3 13 14-18h-8l2-12z" fill="var(--accent)"/></svg>
+      <span>Gigawatt<strong>Energy</strong></span>
+    </a>
+    <nav class="main-nav" aria-label="Main">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">Menu</button>
+      <ul id="nav-menu">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/services/">Services</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/contact/">Contact</a></li>
+        <li><a href="/contact/" class="btn btn-accent nav-cta">Get a Free Quote</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+{{ content | safe }}
+</main>
+
+<section class="cta-band">
+  <div class="container cta-inner">
+    <div>
+      <h2>Ready to switch to solar?</h2>
+      <p>Free, no-obligation quote from an SAA-accredited local installer.</p>
+    </div>
+    <div class="cta-actions">
+      <a class="btn btn-accent" href="/contact/">Get a Free Quote</a>
+      <a class="btn btn-ghost" href="tel:{{ site.phone }}">Call {{ site.phoneDisplay }}</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <p class="footer-logo">Gigawatt<strong>Energy</strong></p>
+      <p>{{ site.description }}</p>
+      <p class="footer-cred">Registered Electrical Contractor {{ site.rec }}<br>SAA Accredited Installer · NETCC Approved Seller</p>
+    </div>
+    <div>
+      <h3>Contact</h3>
+      <ul class="footer-list">
+        <li><a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a></li>
+        <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+        <li>{{ site.address.suburb }}, {{ site.address.locality }} {{ site.address.region }} {{ site.address.postcode }}</li>
+        <li>{{ site.hours }}</li>
+      </ul>
+      <h3>Follow</h3>
+      <ul class="footer-list">
+        <li><a href="{{ site.social.facebook }}" rel="noopener">Facebook</a> · <a href="{{ site.social.instagram }}" rel="noopener">Instagram</a> · <a href="{{ site.social.tiktok }}" rel="noopener">TikTok</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Services</h3>
+      <ul class="footer-list">
+        <li><a href="/services/solar-panel-installation/">Solar Panel Installation</a></li>
+        <li><a href="/services/solar-battery-backup-installation/">Solar + Battery with Backup</a></li>
+        <li><a href="/services/battery-retrofit-installation/">Battery Retrofit</a></li>
+        <li><a href="/services/ev-charger-installation/">EV Charger Installation</a></li>
+        <li><a href="/services/switchboard-upgrades/">Switchboard Upgrades</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Service areas</h3>
+      <p class="footer-areas">{% for a in site.serviceAreas %}{{ a }}{% if not loop.last %} · {% endif %}{% endfor %}</p>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>© {{ '' | year }} {{ site.legalName }}. All rights reserved. · <a href="/privacy/">Privacy Policy</a></p>
+  </div>
+</footer>
+<script>
+  const t=document.querySelector('.nav-toggle'),m=document.getElementById('nav-menu');
+  t.addEventListener('click',()=>{const o=t.getAttribute('aria-expanded')==='true';t.setAttribute('aria-expanded',String(!o));m.classList.toggle('open');});
+</script>
+</body>
+</html>

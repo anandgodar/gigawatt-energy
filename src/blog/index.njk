@@ -1,0 +1,24 @@
+---
+layout: layouts/page.njk
+title: Blog
+heading: From the field — daily work & videos
+crumb: Blog
+lede: Real installations, real numbers, real Melbourne roofs. We post what we did, what we learned, and the video to go with it.
+metaTitle: Solar & Battery Installation Blog — Daily Work from Melbourne
+metaDescription: "Daily installation notes and videos from Gigawatt Energy — solar, battery backup, EV charger and switchboard jobs across Melbourne's north and west."
+permalink: /blog/
+---
+<section class="section">
+  <div class="container">
+    <div class="grid grid-3">
+      {% for post in collections.posts | reverse %}
+      <div class="card post-card">
+        <span class="post-tag">{{ post.data.tags[0] if post.data.tags else "Field notes" }}</span>
+        <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
+        <p>{{ post.data.metaDescription }}</p>
+        <p class="post-meta" style="margin:.8rem 0 0">{{ post.date | readableDate }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

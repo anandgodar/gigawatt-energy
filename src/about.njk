@@ -1,0 +1,51 @@
+---
+layout: layouts/page.njk
+title: About Us
+heading: Save more. Stay powered. Always.
+crumb: About Us
+lede: A family-run solar, battery and electrical business in Mickleham — led by an 'A' Grade Electrician and SAA Accredited Installer, serving Melbourne since 2020.
+metaTitle: About Gigawatt Energy — Family-Run Solar Installer, Mickleham VIC
+metaDescription: "Family-run, SAA-accredited solar & battery installer in Mickleham VIC since 2020. Registered Electrical Contractor REC-32099, Tesla & Sigenergy certified."
+permalink: /about/
+---
+<section class="section">
+  <div class="container grid grid-2" style="align-items:start;gap:3rem">
+    <div class="prose">
+      <h2>Who we are</h2>
+      <p>Gigawatt Energy was established in 2020 as a family-run business in Merrifield, Mickleham. We design, supply and install CEC-approved solar PV, battery storage and backup power systems for homes and businesses across Melbourne's north and west.</p>
+      <p>The business is led by a licensed <strong>'A' Grade Electrician</strong> and <strong>SAA Accredited Solar &amp; Battery Installer</strong>, with an in-house team of electricians and apprentices. That matters: the people who quote your job are the people who install it — no sales middlemen, no subcontractor roulette.</p>
+      <h2>What we stand for</h2>
+      <ul class="check-list">
+        <li>High-quality workmanship, every install</li>
+        <li>Full warranty support on panels, inverters and batteries</li>
+        <li>Clear communication from quote to switch-on</li>
+        <li>Responsive complaints handling — we answer the phone after the install too</li>
+        <li>Safe, efficient, compliant systems, custom-designed for each customer</li>
+      </ul>
+    </div>
+    <div>
+      <div class="stats" style="grid-template-columns:repeat(2,1fr);margin-bottom:2rem">
+        {% for s in site.stats %}
+        <div class="stat card"><div class="num">{{ s.value }}</div><div class="lbl">{{ s.label }}</div></div>
+        {% endfor %}
+      </div>
+      <h3 style="margin-bottom:.8rem">Credentials</h3>
+      <div class="badge-row">
+        {% for c in site.credentials %}<span class="badge">{{ c }}</span>{% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker">Recognition</p>
+      <h2>Award-nominated work</h2>
+    </div>
+    <div class="grid grid-3">
+      {% for a in site.awards %}
+      <div class="card"><div class="card-icon">🏆</div><p>{{ a }}</p></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

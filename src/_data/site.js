@@ -1,0 +1,50 @@
+module.exports = {
+  // Flip to true at launch to remove the noindex tag site-wide
+  production: false,
+  name: "Gigawatt Energy",
+  legalName: "Gigawatt Energy Pty Ltd",
+  url: "https://gigawattenergy.com.au",
+  tagline: "Victoria's Trusted Solar PV, Battery & EV Charger Installer",
+  description:
+    "Family-run, SAA-accredited solar PV, battery storage and EV charger installer in Mickleham, serving homes and businesses across Melbourne's north and west.",
+  phone: "+61 451 644 220",
+  phoneDisplay: "0451 644 220",
+  email: "info@gigawattenergy.com.au",
+  address: { locality: "Mickleham", suburb: "Merrifield", region: "VIC", postcode: "3064", country: "AU" },
+  hours: "Mon–Fri, 8am–5pm",
+  founded: "2020",
+  rec: "REC-32099",
+  social: {
+    facebook: "https://www.facebook.com/gigawattenergy",
+    instagram: "https://www.instagram.com/gigawattenergy",
+    tiktok: "https://www.tiktok.com/@gigawattenergy",
+  },
+  serviceAreas: [
+    "Beveridge","Craigieburn","Donnybrook","Essendon","Greenvale","Kalkallo",
+    "Lara","Mickleham","Point Cook","Sunbury","Tarneit","Truganina",
+    "Tullamarine","Wallan","Werribee","Whittlesea","Wyndham Vale",
+  ],
+  credentials: [
+    "Registered Electrical Contractor (REC-32099)",
+    "SAA Accredited Designer & Installer — Solar PV & Battery Storage",
+    "Solar Victoria Authorised Solar Retailer",
+    "NETCC Approved Seller",
+    "Tesla Powerwall Certified Reseller & Installer",
+    "Sigenergy Certified Installer",
+    "Master Electricians Australia — Bronze Member",
+    "$5M Public & Products Liability Insurance",
+  ],
+  awards: [
+    "Finalist — VIC Electrician (Tradie) of the Year 2023, 2024, 2025 & 2026",
+    "Finalist — VIC Women in Contracting 2024 & 2025",
+    "Finalist — Champion Awards, Electrical Business 2025",
+  ],
+  panelBrands: ["AIKO", "Jinko", "LONGi", "Trina", "JA Solar", "Risen", "TW Solar"],
+  batteryBrands: ["Sigenergy", "Tesla", "Sungrow", "GoodWe", "Fox ESS"],
+  stats: [
+    { value: "1,600+", label: "Installations completed" },
+    { value: "5.0★", label: "Google review rating" },
+    { value: "5+", label: "Years in renewable energy" },
+    { value: "6+", label: "Industry award nominations" },
+  ],
+};

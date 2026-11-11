@@ -1,0 +1,33 @@
+---
+layout: layouts/base.njk
+ogType: article
+---
+{% block schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ title | dump | safe }},
+  "description": {{ (metaDescription or site.description) | dump | safe }},
+  "datePublished": "{{ page.date | isoDate }}",
+  "dateModified": "{{ page.date | isoDate }}",
+  "author": { "@type": "Organization", "name": "{{ site.name }}", "url": "{{ site.url }}" },
+  "publisher": { "@id": "{{ site.url }}/#business" },
+  "mainEntityOfPage": "{{ site.url }}{{ page.url }}"
+}
+</script>
+{% endblock %}
+<div class="page-hero">
+  <div class="container">
+    <p class="crumb"><a href="/">Home</a> / <a href="/blog/">Blog</a></p>
+    <h1>{{ title }}</h1>
+    <p class="lede">{{ page.date | readableDate }}{% if tags and tags.length %} · {{ tags | join(", ") }}{% endif %}</p>
+  </div>
+</div>
+<article class="section">
+  <div class="container prose">
+    {{ content | safe }}
+    <hr style="border:0;border-top:1px solid var(--line);margin:2.5rem 0">
+    <p><strong>Thinking about solar, batteries or an EV charger?</strong> <a href="/contact/">Get a free quote</a> or call <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a> — we're a local, SAA-accredited installer based in Mickleham.</p>
+  </div>
+</article>

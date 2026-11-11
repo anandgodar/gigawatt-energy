@@ -1,0 +1,163 @@
+---
+layout: layouts/base.njk
+title: Solar Panel, Battery & EV Charger Installation Melbourne
+metaTitle: Solar Panel, Battery & EV Charger Installation Melbourne
+metaDescription: "Family-run, SAA-accredited solar, battery & EV charger installer in Mickleham VIC. 1,600+ installs, 5.0★ rated, Tesla & Sigenergy certified. Free quotes."
+permalink: /
+---
+<section class="hero">
+  <div class="container">
+    <p class="kicker">Mickleham · Melbourne's North & West · Est. {{ site.founded }}</p>
+    <h1>Solar, battery &amp; EV charger installation done right — by local accredited electricians</h1>
+    <p class="lede">Gigawatt Energy is a family-run, SAA-accredited installer with 1,600+ systems on Melbourne roofs. We design, supply and install CEC-approved solar PV, battery backup and EV charging — and we're the licensed electricians who do the work, not a sales middleman.</p>
+    <div class="hero-actions">
+      <a class="btn btn-accent" href="/contact/">Get a Free Quote</a>
+      <a class="btn btn-ghost" href="/services/">Explore Services</a>
+    </div>
+    <div class="hero-points">
+      <span><strong>5.0★ Google rating</strong>from verified reviews</span>
+      <span><strong>1,600+ installations</strong>across Melbourne</span>
+      <span><strong>Tesla &amp; Sigenergy certified</strong>battery installer</span>
+      <span><strong>REC {{ site.rec | replace("REC-","") }}</strong>Registered Electrical Contractor</span>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker">What we do</p>
+      <h2>Services we provide</h2>
+      <p>Practical renewable energy for homes and businesses — designed, installed and supported by our in-house team of licensed electricians.</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="card">
+        <div class="card-icon">☀️</div>
+        <h3>Solar Panel Installation</h3>
+        <p>Custom-designed solar PV systems using tier-one panels (AIKO, Jinko, LONGi, Trina) to cut your energy bills and carbon footprint.</p>
+        <a class="card-link" href="/services/solar-panel-installation/">Learn more →</a>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔋</div>
+        <h3>Solar + Battery with Backup</h3>
+        <p>Solar power that works day and night. Store what you generate and keep the lights on through blackouts with whole-home backup options.</p>
+        <a class="card-link" href="/services/solar-battery-backup-installation/">Learn more →</a>
+      </div>
+      <div class="card">
+        <div class="card-icon">⚡</div>
+        <h3>Battery Retrofit (Existing Solar)</h3>
+        <p>Already have panels? Add a Tesla Powerwall, Sigenergy or Sungrow battery with backup supply to stop exporting cheap and buying back dear.</p>
+        <a class="card-link" href="/services/battery-retrofit-installation/">Learn more →</a>
+      </div>
+      <div class="card">
+        <div class="card-icon">🚗</div>
+        <h3>EV Charger Installation</h3>
+        <p>Home and business EV charging, installed safely — we assess cable routing, switchboard capacity and any upgrades needed before we quote.</p>
+        <a class="card-link" href="/services/ev-charger-installation/">Learn more →</a>
+      </div>
+      <div class="card">
+        <div class="card-icon">🧰</div>
+        <h3>Switchboard Upgrades</h3>
+        <p>Modern solar, battery and EV systems need compliant switchboards with room to grow. We upgrade yours safely and to standard.</p>
+        <a class="card-link" href="/services/switchboard-upgrades/">Learn more →</a>
+      </div>
+      <div class="card" style="background:var(--ink);color:#fff;border:0">
+        <div class="card-icon" style="background:rgba(245,166,35,.25)">💬</div>
+        <h3 style="color:#fff">Not sure what you need?</h3>
+        <p style="color:#b9c4cb">Tell us about your home and bills, and we'll design the right system — no pushy sales, just an electrician's honest advice.</p>
+        <a class="card-link" href="/contact/" style="color:var(--accent)">Get a free quote →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="stats">
+      {% for s in site.stats %}
+      <div class="stat"><div class="num">{{ s.value }}</div><div class="lbl">{{ s.label }}</div></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container grid grid-2" style="align-items:center;gap:3rem">
+    <div>
+      <p class="kicker">Why Gigawatt Energy</p>
+      <h2>Installed by the licensed electricians who quoted you</h2>
+      <p style="margin:1rem 0;color:var(--ink-soft)">Most solar companies sell; subcontractors install. We're different — Gigawatt Energy is led by an 'A' Grade Electrician and SAA Accredited Solar &amp; Battery Installer, and our in-house team does the work from design to switch-on.</p>
+      <ul class="check-list">
+        <li>CEC-approved panels, inverters and batteries only</li>
+        <li>5-year installation workmanship warranty</li>
+        <li>Single-phase and three-phase systems, with whole-home backup options</li>
+        <li>Smart monitoring set up and explained before we leave</li>
+        <li>Clear communication and responsive after-sales support</li>
+      </ul>
+      <div style="margin-top:1.8rem"><a class="btn btn-dark" href="/about/">About us</a></div>
+    </div>
+    <div>
+      <h3 style="margin-bottom:1rem">Accreditations &amp; credentials</h3>
+      <div class="badge-row">
+        {% for c in site.credentials %}<span class="badge">{{ c }}</span>{% endfor %}
+      </div>
+      <h3 style="margin:1.8rem 0 1rem">Awards</h3>
+      <div class="badge-row">
+        {% for a in site.awards %}<span class="badge">🏆 {{ a }}</span>{% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker">Popular packages</p>
+      <h2>Solar &amp; battery systems sized for real homes</h2>
+      <p>Every quote is custom, but these are the configurations Melbourne households ask for most.</p>
+    </div>
+    <div class="grid grid-4">
+      <div class="card"><h3>6.6 kWp Solar</h3><p>The proven starter for small-to-medium households. Covers daytime usage and exports the rest.</p></div>
+      <div class="card"><h3>9.9 kWp Solar + Battery</h3><p>Our most popular combination — generate, store and use your own power around the clock.</p></div>
+      <div class="card"><h3>13.3 kWp Solar + Battery</h3><p>For larger homes, pools, EVs and future-proofing. Serious generation with whole-home backup.</p></div>
+      <div class="card"><h3>Battery-only Retrofit</h3><p>Already have solar? Add storage and backup without touching your existing panels.</p></div>
+    </div>
+    <p style="margin-top:1.6rem;color:var(--ink-soft)">Panels: {{ site.panelBrands | join(" · ") }} &nbsp;|&nbsp; Batteries: {{ site.batteryBrands | join(" · ") }}</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker">From the blog</p>
+      <h2>Latest from the field</h2>
+      <p>Daily notes and videos from real installations across Melbourne's north and west.</p>
+    </div>
+    <div class="grid grid-3">
+      {% for post in collections.posts | reverse %}{% if loop.index <= 3 %}
+      <div class="card post-card">
+        <span class="post-tag">{{ post.data.tags[0] if post.data.tags else "Field notes" }}</span>
+        <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
+        <p>{{ post.data.metaDescription }}</p>
+        <p class="post-meta" style="margin:0.8rem 0 0">{{ post.date | readableDate }}</p>
+      </div>
+      {% endif %}{% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker">FAQs</p>
+      <h2>Questions Melbourne homeowners ask us</h2>
+    </div>
+    <div class="faq" style="max-width:760px">
+      <details open><summary>How do I get started with a solar installation?</summary><p>Call us or request a free quote online. We'll ask about your bills, roof and switchboard, then design a system and give you a fixed written quote — no obligation, no door-knockers.</p></details>
+      <details><summary>Do solar panels work on cloudy days?</summary><p>Yes — output drops but doesn't stop. A well-sized system is designed around your annual usage, and pairing it with a battery lets you ride through low-generation days.</p></details>
+      <details><summary>Am I eligible for Victorian solar rebates?</summary><p>Most owner-occupied homes under the income and property-value thresholds qualify for Solar Victoria rebates. As a Solar Victoria Authorised Retailer we handle the paperwork and confirm your eligibility before you commit.</p></details>
+      <details><summary>Can you install a battery if my solar was installed by someone else?</summary><p>Absolutely — battery retrofits are one of our core services. We assess your existing inverter and switchboard, then recommend a compatible battery with backup supply.</p></details>
+      <details><summary>What warranty do I get?</summary><p>A 5-year installation workmanship warranty from us, on top of the manufacturer warranties on panels (typically 25 years performance), inverters and batteries (typically 10 years).</p></details>
+    </div>
+  </div>
+</section>
