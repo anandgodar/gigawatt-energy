@@ -48,6 +48,14 @@ layout: layouts/base.njk
 <div class="section">
   <div class="container prose">
     {{ content | safe }}
+    <div class="reviews-band" style="margin-top:2.6rem">
+      <div>
+        <div class="rating">5.0</div>
+        <div class="stars">{% for i in range(0,5) %}{{ icons.star | safe }}{% endfor %}</div>
+      </div>
+      <p>Fixed written quotes from the licensed electricians who do the work — rated 5.0 on Google.</p>
+      <a class="btn btn-accent" href="/contact/">Get a free quote</a>
+    </div>
   </div>
 </div>
 {% if faqs %}
@@ -68,3 +76,18 @@ layout: layouts/base.njk
   </div>
 </div>
 {% endif %}
+<div class="section">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker">Related services</p>
+      <h2>Often installed together</h2>
+    </div>
+    <div class="grid grid-4">
+      {% if page.url != "/services/solar-panel-installation/" %}<div class="card"><h3>Solar Panels</h3><p>Tier-one panels, custom-designed.</p><a class="card-link" href="/services/solar-panel-installation/">Learn more</a></div>{% endif %}
+      {% if page.url != "/services/solar-battery-backup-installation/" %}<div class="card"><h3>Solar + Battery</h3><p>Power day and night, with backup.</p><a class="card-link" href="/services/solar-battery-backup-installation/">Learn more</a></div>{% endif %}
+      {% if page.url != "/services/battery-retrofit-installation/" %}<div class="card"><h3>Battery Retrofit</h3><p>Add storage to existing solar.</p><a class="card-link" href="/services/battery-retrofit-installation/">Learn more</a></div>{% endif %}
+      {% if page.url != "/services/ev-charger-installation/" %}<div class="card"><h3>EV Charger</h3><p>Safe home and business charging.</p><a class="card-link" href="/services/ev-charger-installation/">Learn more</a></div>{% endif %}
+      {% if page.url != "/services/switchboard-upgrades/" %}<div class="card"><h3>Switchboard Upgrades</h3><p>Compliant, solar- and EV-ready.</p><a class="card-link" href="/services/switchboard-upgrades/">Learn more</a></div>{% endif %}
+    </div>
+  </div>
+</div>
