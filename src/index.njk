@@ -12,17 +12,14 @@ permalink: /
         <p class="kicker">Family-run in Mickleham, serving Melbourne's north &amp; west since {{ site.founded }}</p>
         <h1>The house that stays lit</h1>
         <p class="lede">Solar by day, battery by night, backup through blackouts — designed and installed by the licensed electricians who quote your job, not a sales middleman. 1,600+ systems on Melbourne roofs.</p>
-        <div class="hero-actions">
-          <a class="btn btn-accent" href="/contact/">Get a Free Quote</a>
-          <a class="btn btn-ghost" href="/services/">Explore Services</a>
-        </div>
         <div class="hero-points">
           <span><strong>5.0★ Google rating</strong>from verified reviews</span>
           <span><strong>Tesla &amp; Sigenergy</strong>certified battery installer</span>
           <span><strong>REC {{ site.rec | replace("REC-","") }}</strong>Registered Electrical Contractor</span>
         </div>
+        <p class="hero-trust">Prefer to talk? Call <a href="tel:{{ site.phone }}" style="color:#fff;font-weight:600">{{ site.phoneDisplay }}</a> — Mon–Fri, 8am–5pm.</p>
       </div>
-      <div>{% include "hero-illustration.njk" %}</div>
+      <div>{% include "quote-widget.njk" %}</div>
     </div>
   </div>
 </section>

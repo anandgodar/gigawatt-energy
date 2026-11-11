@@ -1,0 +1,125 @@
+<div class="quote-widget" data-endpoint="">
+  <div class="qw-head">
+    <h2 class="qw-title">Get your free quote</h2>
+    <p class="qw-progress"><span class="qw-step-label">Step 1 of 3</span> · takes about 60 seconds</p>
+    <div class="qw-bar"><span style="width:33%"></span></div>
+  </div>
+
+  <form class="qw-form" novalidate>
+    <!-- Step 1: service -->
+    <fieldset class="qw-panel" data-step="1">
+      <legend>What do you need?</legend>
+      <div class="qw-choices">
+        <label class="qw-chip"><input type="radio" name="service" value="Solar panels" required><span>{{ icons.panel | safe }}Solar panels</span></label>
+        <label class="qw-chip"><input type="radio" name="service" value="Solar + battery"><span>{{ icons.battery | safe }}Solar + battery</span></label>
+        <label class="qw-chip"><input type="radio" name="service" value="Battery retrofit"><span>{{ icons.retrofit | safe }}Battery for my existing solar</span></label>
+        <label class="qw-chip"><input type="radio" name="service" value="EV charger"><span>{{ icons.ev | safe }}EV charger</span></label>
+        <label class="qw-chip"><input type="radio" name="service" value="Switchboard upgrade"><span>{{ icons.switchboard | safe }}Switchboard upgrade</span></label>
+        <label class="qw-chip"><input type="radio" name="service" value="Not sure yet"><span>{{ icons.chat | safe }}Not sure — advise me</span></label>
+      </div>
+      <p class="qw-error" hidden>Choose one to continue.</p>
+      <div class="qw-nav"><button type="button" class="btn btn-accent qw-next">Continue</button></div>
+    </fieldset>
+
+    <!-- Step 2: property -->
+    <fieldset class="qw-panel" data-step="2" hidden>
+      <legend>About your property</legend>
+      <div class="qw-row">
+        <label for="qw-suburb">Suburb</label>
+        <input id="qw-suburb" name="suburb" list="qw-areas" placeholder="e.g. Craigieburn" autocomplete="address-level2" required>
+        <datalist id="qw-areas">{% for a in site.serviceAreas %}<option value="{{ a }}">{% endfor %}</datalist>
+      </div>
+      <div class="qw-row qw-two">
+        <div>
+          <label for="qw-property">Property</label>
+          <select id="qw-property" name="property"><option>House</option><option>Townhouse / unit</option><option>Business / commercial</option></select>
+        </div>
+        <div>
+          <label for="qw-phase">Power supply</label>
+          <select id="qw-phase" name="phase"><option>Not sure</option><option>Single-phase</option><option>Three-phase</option></select>
+        </div>
+      </div>
+      <div class="qw-row">
+        <label for="qw-bill">Average quarterly electricity bill: <output id="qw-bill-out">$700</output></label>
+        <input id="qw-bill" name="bill" type="range" min="200" max="1500" step="50" value="700">
+      </div>
+      <div class="qw-row">
+        <span class="qw-mini-label">Do you already have solar?</span>
+        <div class="qw-inline">
+          <label class="qw-pill"><input type="radio" name="existing" value="No" checked><span>No</span></label>
+          <label class="qw-pill"><input type="radio" name="existing" value="Yes"><span>Yes</span></label>
+        </div>
+      </div>
+      <p class="qw-error" hidden>Please enter your suburb.</p>
+      <div class="qw-nav">
+        <button type="button" class="btn qw-back">Back</button>
+        <button type="button" class="btn btn-accent qw-next">Continue</button>
+      </div>
+    </fieldset>
+
+    <!-- Step 3: contact -->
+    <fieldset class="qw-panel" data-step="3" hidden>
+      <legend>Where do we send your quote?</legend>
+      <div class="qw-row qw-two">
+        <div><label for="qw-name">Name</label><input id="qw-name" name="name" autocomplete="name" required></div>
+        <div><label for="qw-phone">Phone</label><input id="qw-phone" name="phone" type="tel" autocomplete="tel" required></div>
+      </div>
+      <div class="qw-row">
+        <label for="qw-email">Email</label><input id="qw-email" name="email" type="email" autocomplete="email" required>
+      </div>
+      <div class="qw-row">
+        <label for="qw-when">Best time for a call</label>
+        <select id="qw-when" name="callback"><option>Anytime</option><option>Morning</option><option>Afternoon</option></select>
+      </div>
+      <p class="qw-error" hidden>Please fill in your name, phone and a valid email.</p>
+      <div class="qw-nav">
+        <button type="button" class="btn qw-back">Back</button>
+        <button type="submit" class="btn btn-accent">Get my free quote</button>
+      </div>
+      <p class="qw-note">No door-knockers, no spam — a local electrician will call you back. <a href="/privacy/">Privacy</a></p>
+    </fieldset>
+
+    <!-- Done -->
+    <div class="qw-panel qw-done" data-step="4" hidden aria-live="polite">
+      <h3>Thanks — request ready to send</h3>
+      <p class="qw-done-msg">We've opened an email with your details addressed to our team — just press send. Prefer to talk now? Call <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a>.</p>
+    </div>
+  </form>
+</div>
+
+<script>
+(function(){
+  var w=document.currentScript.previousElementSibling;
+  if(!w||!w.classList.contains('quote-widget'))return;
+  var form=w.querySelector('.qw-form'),panels=[].slice.call(w.querySelectorAll('.qw-panel')),
+      bar=w.querySelector('.qw-bar span'),label=w.querySelector('.qw-step-label'),step=1;
+  function show(n){step=n;panels.forEach(function(p){p.hidden=+p.dataset.step!==n;});
+    if(n<4){label.textContent='Step '+n+' of 3';bar.style.width=(n*33)+'%';}
+    else{bar.style.width='100%';label.textContent='Done';}
+    var f=w.querySelector('.qw-panel:not([hidden]) input,.qw-panel:not([hidden]) select');if(f&&n>1)f.focus();}
+  function el(n){return form.elements.namedItem(n);}
+  function valid(n){var p=panels[n-1],err=p.querySelector('.qw-error'),ok=true;
+    if(n===1)ok=!!form.querySelector('[name=service]:checked');
+    if(n===2)ok=el('suburb').value.trim().length>1;
+    if(n===3)ok=el('name').value.trim()&&el('phone').value.trim().length>=8&&/.+@.+\..+/.test(el('email').value);
+    if(err)err.hidden=ok;return ok;}
+  w.addEventListener('click',function(e){
+    if(e.target.closest('.qw-next')){if(valid(step))show(step+1);}
+    if(e.target.closest('.qw-back'))show(step-1);});
+  var bill=form.querySelector('#qw-bill'),out=form.querySelector('#qw-bill-out');
+  if(bill)bill.addEventListener('input',function(){out.textContent='$'+bill.value;});
+  form.addEventListener('submit',function(e){e.preventDefault();if(!valid(3))return;
+    var d=new FormData(form),o={};d.forEach(function(v,k){o[k]=v;});
+    var ep=w.dataset.endpoint;
+    if(ep){fetch(ep,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(o)})
+      .then(function(){w.querySelector('.qw-done-msg').textContent='Got it — a local electrician will call you back shortly.';show(4);})
+      .catch(function(){fallback(o);});}
+    else fallback(o);
+    function fallback(o){var body='Quote request from the website%0D%0A%0D%0A'+
+      ['Service: '+o.service,'Suburb: '+o.suburb,'Property: '+o.property,'Supply: '+o.phase,
+       'Quarterly bill: ~$'+o.bill,'Existing solar: '+o.existing,'','Name: '+o.name,
+       'Phone: '+o.phone,'Email: '+o.email,'Best time to call: '+o.callback].join('%0D%0A');
+      location.href='mailto:{{ site.email }}?subject='+encodeURIComponent('Free quote request — '+o.service+' ('+o.suburb+')')+'&body='+body;
+      show(4);}});
+})();
+</script>
