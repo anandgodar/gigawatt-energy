@@ -2,25 +2,77 @@
 layout: layouts/base.njk
 title: Solar Panel, Battery & EV Charger Installation Melbourne
 metaTitle: Solar Panel, Battery & EV Charger Installation Melbourne
-metaDescription: "Family-run, SAA-accredited solar, battery & EV charger installer in Mickleham VIC. 1,600+ installs, 5.0★ rated, Tesla & Sigenergy certified. Free quotes."
+metaDescription: "Melbourne's north's #1-rated solar installer — 5.0★ on Google, 4-year award finalist, Tesla & Sigenergy certified. Family-run in Mickleham. Free quotes."
 permalink: /
 ---
 <section class="hero">
   <div class="container">
     <div class="hero-grid">
       <div>
-        <p class="kicker">Family-run in Mickleham, serving Melbourne's north &amp; west since {{ site.founded }}</p>
+        <p class="kicker">Melbourne's north's #1-rated solar &amp; battery installer — 5.0★ on Google</p>
         <h1>The house that stays lit</h1>
-        <p class="lede">Solar by day, battery by night, backup through blackouts — designed and installed by the licensed electricians who quote your job, not a sales middleman. 1,600+ systems on Melbourne roofs.</p>
+        <p class="lede">Solar by day, battery by night, backup through blackouts — designed and installed by the award-recognised, family-run electricians of Mickleham. 1,600+ systems on Melbourne roofs, and the licensed electrician who quotes your job is the one who installs it.</p>
         <div class="hero-points">
           <span><strong>5.0★ Google rating</strong>from verified reviews</span>
+          <span><strong>Excellence Awards finalist</strong>four years running</span>
           <span><strong>Tesla &amp; Sigenergy</strong>certified battery installer</span>
-          <span><strong>REC {{ site.rec | replace("REC-","") }}</strong>Registered Electrical Contractor</span>
         </div>
         <p class="hero-trust">Prefer to talk? Call <a href="tel:{{ site.phone }}" style="color:#fff;font-weight:600">{{ site.phoneDisplay }}</a> — Mon–Fri, 8am–5pm.</p>
       </div>
       <div>{% include "quote-widget.njk" %}</div>
     </div>
+  </div>
+</section>
+
+<section class="trust-strip">
+  <div class="container logo-strip" aria-label="Accreditations">
+    <img src="{{ images.badgeRec.src }}" alt="{{ images.badgeRec.alt }}" loading="lazy">
+    <img src="{{ images.badgeSaa.src }}" alt="{{ images.badgeSaa.alt }}" loading="lazy">
+    <img src="{{ images.badgeSolvic.src }}" alt="{{ images.badgeSolvic.alt }}" loading="lazy">
+    <img src="{{ images.badgeTesla.src }}" alt="{{ images.badgeTesla.alt }}" loading="lazy">
+    <img src="{{ images.badgePw.src }}" alt="{{ images.badgePw.alt }}" loading="lazy">
+    <img src="{{ images.badgeNetcc.src }}" alt="{{ images.badgeNetcc.alt }}" loading="lazy">
+    <img src="{{ images.badgeMea.src }}" alt="{{ images.badgeMea.alt }}" loading="lazy">
+    <img src="{{ images.badgeSigen.src }}" alt="{{ images.badgeSigen.alt }}" loading="lazy">
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker">Award-winning work</p>
+      <h2>Four years an Excellence Awards finalist — and counting</h2>
+      <p>Victoria's electrical industry has named us a finalist every year since 2023: Electrician of the Year in 2023, 2024, 2025 and 2026, Women in Contracting in 2024 and 2025, and Champion Awards Electrical Business in 2025. Awards don't install your solar — but the standards behind them do.</p>
+    </div>
+    <div class="award-wall">
+      <figure><img src="{{ images.award2023.src }}" alt="{{ images.award2023.alt }}" loading="lazy"><figcaption>Electrician of the Year<br>Finalist 2023</figcaption></figure>
+      <figure><img src="{{ images.award2024.src }}" alt="{{ images.award2024.alt }}" loading="lazy"><figcaption>Electrician of the Year<br>Finalist 2024</figcaption></figure>
+      <figure><img src="{{ images.awardWic24.src }}" alt="{{ images.awardWic24.alt }}" loading="lazy"><figcaption>Women in Contracting<br>Finalist 2024</figcaption></figure>
+      <figure><img src="{{ images.award2025.src }}" alt="{{ images.award2025.alt }}" loading="lazy"><figcaption>Electrician of the Year<br>Finalist 2025</figcaption></figure>
+      <figure><img src="{{ images.awardWic25.src }}" alt="{{ images.awardWic25.alt }}" loading="lazy"><figcaption>Women in Contracting<br>Finalist 2025</figcaption></figure>
+      <figure><img src="{{ images.awardChamp.src }}" alt="{{ images.awardChamp.alt }}" loading="lazy"><figcaption>Champion Awards<br>Electrical Business 2025</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container who-grid">
+    <div>
+      <p class="kicker">Who we are</p>
+      <h2>A family business with a licence, not a franchise with a call centre</h2>
+      <p style="margin:1rem 0;color:var(--ink-soft)">Gigawatt Energy started in 2020 in Merrifield, Mickleham — a family-run business led by an 'A' Grade Electrician and SAA Accredited Solar &amp; Battery Installer. Five years and 1,600+ installations later, we're still the ones on your roof: our in-house team designs, supplies and installs every CEC-approved system, and answers the phone after it's switched on.</p>
+      <ul class="check-list">
+        <li>Our mission: accelerate the shift to greener energy with cost-effective, efficient solar</li>
+        <li>Direct contact with your electrician — before, during and after the install</li>
+        <li>5-year installation workmanship warranty on every job</li>
+        <li>$5M public &amp; products liability insurance, Master Electricians member</li>
+      </ul>
+      <div style="margin-top:1.8rem"><a class="btn btn-dark" href="/about/">Meet Gigawatt Energy</a></div>
+    </div>
+    <figure class="who-photo">
+      <img src="{{ images.roof.src }}" alt="{{ images.roof.alt }}" loading="lazy">
+      <figcaption>Our team's work on a Melbourne rooftop</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -35,7 +87,7 @@ permalink: /
       <div class="card">
         <div class="card-icon">{{ icons.panel | safe }}</div>
         <h3>Solar Panel Installation</h3>
-        <p>Custom-designed solar PV systems using tier-one panels (AIKO, Jinko, LONGi, Trina) to cut your energy bills and carbon footprint.</p>
+        <p>Custom-designed solar PV systems using tier-one panels (Jinko, LONGi, Trina, JA Solar) to cut your energy bills and carbon footprint.</p>
         <a class="card-link" href="/services/solar-panel-installation/">Learn more</a>
       </div>
       <div class="card">
@@ -74,17 +126,7 @@ permalink: /
 
 <section class="section section-alt">
   <div class="container">
-    <div class="stats">
-      {% for s in site.stats %}
-      <div class="stat"><div class="num">{{ s.value }}</div><div class="lbl">{{ s.label }}</div></div>
-      {% endfor %}
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="reviews-band">
+    <div class="reviews-band" style="margin-bottom:2rem">
       <div>
         <div class="rating">5.0</div>
         <div class="stars">{% for i in range(0,5) %}{{ icons.star | safe }}{% endfor %}</div>
@@ -92,38 +134,27 @@ permalink: /
       <p>Rated 5.0 on Google by Melbourne homeowners — for clear communication, competitive quotes and workmanship that passes inspection first time.</p>
       <a class="btn btn-accent" href="https://www.google.com/search?q=Gigawatt+Energy+Mickleham+reviews" rel="noopener">Read our Google reviews</a>
     </div>
+    <div class="grid grid-3">
+      <div class="card review-card">
+        <div class="stars">{% for i in range(0,5) %}{{ icons.star | safe }}{% endfor %}</div>
+        <p>A fast, neat solar and battery install on a two-storey home — completed over two days, through extreme heat.</p>
+        <p class="review-by">Rajkumar S. · Google review</p>
+      </div>
+      <div class="card review-card">
+        <div class="stars">{% for i in range(0,5) %}{{ icons.star | safe }}{% endfor %}</div>
+        <p>Upgraded from a single-phase Powerwall to a three-phase Fox ESS system with a switchboard upgrade — praised the quality of the work.</p>
+        <p class="review-by">Reil Marie B. · Google review</p>
+      </div>
+      <div class="card review-card">
+        <div class="stars">{% for i in range(0,5) %}{{ icons.star | safe }}{% endfor %}</div>
+        <p>The Sigenergy system has cut their grid use, the app alerts them to outages — and the EV charger went in on the same job.</p>
+        <p class="review-by">Moon A. · Google review</p>
+      </div>
+    </div>
   </div>
 </section>
 
 <section class="section">
-  <div class="container grid grid-2" style="align-items:center;gap:3rem">
-    <div>
-      <p class="kicker">Why Gigawatt Energy</p>
-      <h2>Installed by the licensed electricians who quoted you</h2>
-      <p style="margin:1rem 0;color:var(--ink-soft)">Most solar companies sell; subcontractors install. We're different — Gigawatt Energy is led by an 'A' Grade Electrician and SAA Accredited Solar &amp; Battery Installer, and our in-house team does the work from design to switch-on.</p>
-      <ul class="check-list">
-        <li>CEC-approved panels, inverters and batteries only</li>
-        <li>5-year installation workmanship warranty</li>
-        <li>Single-phase and three-phase systems, with whole-home backup options</li>
-        <li>Smart monitoring set up and explained before we leave</li>
-        <li>Clear communication and responsive after-sales support</li>
-      </ul>
-      <div style="margin-top:1.8rem"><a class="btn btn-dark" href="/about/">About us</a></div>
-    </div>
-    <div>
-      <h3 style="margin-bottom:1rem">Accreditations &amp; credentials</h3>
-      <div class="badge-row">
-        {% for c in site.credentials %}<span class="badge">{{ c }}</span>{% endfor %}
-      </div>
-      <h3 style="margin:1.8rem 0 1rem">Awards</h3>
-      <div class="badge-row">
-        {% for a in site.awards %}<span class="badge">🏆 {{ a }}</span>{% endfor %}
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section section-alt">
   <div class="container">
     <div class="section-head">
       <p class="kicker">Popular packages</p>
@@ -136,11 +167,22 @@ permalink: /
       <div class="card"><h3>13.3 kWp Solar + Battery</h3><p>For larger homes, pools, EVs and future-proofing. Serious generation with whole-home backup.</p></div>
       <div class="card"><h3>Battery-only Retrofit</h3><p>Already have solar? Add storage and backup without touching your existing panels.</p></div>
     </div>
-    <p style="margin-top:1.6rem;color:var(--ink-soft)">Panels: {{ site.panelBrands | join(" · ") }} &nbsp;|&nbsp; Batteries: {{ site.batteryBrands | join(" · ") }}</p>
+    <div class="logo-strip brands" aria-label="Brands we install" style="margin-top:2.2rem">
+      <img src="{{ images.brandJinko.src }}" alt="{{ images.brandJinko.alt }}" loading="lazy">
+      <img src="{{ images.brandLongi.src }}" alt="{{ images.brandLongi.alt }}" loading="lazy">
+      <img src="{{ images.brandTrina.src }}" alt="{{ images.brandTrina.alt }}" loading="lazy">
+      <img src="{{ images.brandJa.src }}" alt="{{ images.brandJa.alt }}" loading="lazy">
+      <img src="{{ images.brandTw.src }}" alt="{{ images.brandTw.alt }}" loading="lazy">
+      <img src="{{ images.brandTesla.src }}" alt="{{ images.brandTesla.alt }}" loading="lazy">
+      <img src="{{ images.brandSigen.src }}" alt="{{ images.brandSigen.alt }}" loading="lazy">
+      <img src="{{ images.brandSungrow.src }}" alt="{{ images.brandSungrow.alt }}" loading="lazy">
+      <img src="{{ images.brandGoodwe.src }}" alt="{{ images.brandGoodwe.alt }}" loading="lazy">
+      <img src="{{ images.brandFox.src }}" alt="{{ images.brandFox.alt }}" loading="lazy">
+    </div>
   </div>
 </section>
 
-<section class="section">
+<section class="section section-alt">
   <div class="container">
     <div class="section-head">
       <p class="kicker">From the blog</p>
@@ -160,14 +202,14 @@ permalink: /
   </div>
 </section>
 
-<section class="section section-alt">
+<section class="section">
   <div class="container">
     <div class="section-head">
       <p class="kicker">FAQs</p>
       <h2>Questions Melbourne homeowners ask us</h2>
     </div>
     <div class="faq" style="max-width:760px">
-      <details open><summary>How do I get started with a solar installation?</summary><p>Call us or request a free quote online. We'll ask about your bills, roof and switchboard, then design a system and give you a fixed written quote — no obligation, no door-knockers.</p></details>
+      <details open><summary>How do I get started with a solar installation?</summary><p>Use the 60-second quote form above, or call us. We'll ask about your bills, roof and switchboard, then design a system and give you a fixed written quote — no obligation, no door-knockers.</p></details>
       <details><summary>Do solar panels work on cloudy days?</summary><p>Yes — output drops but doesn't stop. A well-sized system is designed around your annual usage, and pairing it with a battery lets you ride through low-generation days.</p></details>
       <details><summary>Am I eligible for Victorian solar rebates?</summary><p>Most owner-occupied homes under the income and property-value thresholds qualify for Solar Victoria rebates. As a Solar Victoria Authorised Retailer we handle the paperwork and confirm your eligibility before you commit.</p></details>
       <details><summary>Can you install a battery if my solar was installed by someone else?</summary><p>Absolutely — battery retrofits are one of our core services. We assess your existing inverter and switchboard, then recommend a compatible battery with backup supply.</p></details>

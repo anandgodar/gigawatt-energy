@@ -4,48 +4,78 @@ title: About Us
 heading: Save more. Stay powered. Always.
 crumb: About Us
 lede: A family-run solar, battery and electrical business in Mickleham — led by an 'A' Grade Electrician and SAA Accredited Installer, serving Melbourne since 2020.
-metaTitle: About Gigawatt Energy — Family-Run Solar Installer, Mickleham VIC
-metaDescription: "Family-run, SAA-accredited solar & battery installer in Mickleham VIC since 2020. Registered Electrical Contractor REC-32099, Tesla & Sigenergy certified."
+metaTitle: About Gigawatt Energy — Award-Winning Family Solar Installer, Mickleham
+metaDescription: "Family-run, SAA-accredited solar & battery installer in Mickleham VIC since 2020. 4-year Excellence Awards finalist, Tesla & Sigenergy certified, REC-32099."
 permalink: /about/
 ---
 <section class="section">
-  <div class="container grid grid-2" style="align-items:start;gap:3rem">
+  <div class="container who-grid">
     <div class="prose">
       <h2>Who we are</h2>
-      <p>Gigawatt Energy was established in 2020 as a family-run business in Merrifield, Mickleham. We design, supply and install CEC-approved solar PV, battery storage and backup power systems for homes and businesses across Melbourne's north and west.</p>
+      <p>Gigawatt Energy was established in 2020 as a family-run business in Merrifield, Mickleham. We design, supply and install CEC-approved solar PV, battery storage and backup power systems for homes and businesses across Melbourne's north and west — 1,600+ of them so far.</p>
       <p>The business is led by a licensed <strong>'A' Grade Electrician</strong> and <strong>SAA Accredited Solar &amp; Battery Installer</strong>, with an in-house team of electricians and apprentices. That matters: the people who quote your job are the people who install it — no sales middlemen, no subcontractor roulette.</p>
+      <h2>Our mission &amp; vision</h2>
+      <p><strong>Mission:</strong> accelerate the shift to greener energy through cost-effective, efficient solar solutions.</p>
+      <p><strong>Vision:</strong> empower communities with smart energy — and grow into a leader in renewable energy without ever losing the standards of a family business.</p>
       <h2>What we stand for</h2>
       <ul class="check-list">
         <li>High-quality workmanship, every install</li>
         <li>Full warranty support on panels, inverters and batteries</li>
-        <li>Clear communication from quote to switch-on</li>
-        <li>Responsive complaints handling — we answer the phone after the install too</li>
+        <li>Direct contact with your electrician — clear communication from quote to switch-on</li>
+        <li>Responsive after-sales support: we answer the phone after the install too</li>
         <li>Safe, efficient, compliant systems, custom-designed for each customer</li>
       </ul>
     </div>
     <div>
-      <div class="stats" style="grid-template-columns:repeat(2,1fr);margin-bottom:2rem">
+      <figure class="who-photo" style="margin-bottom:2rem">
+        <img src="{{ images.roof.src }}" alt="{{ images.roof.alt }}" loading="lazy">
+        <figcaption>Our team's work on a Melbourne rooftop</figcaption>
+      </figure>
+      <div class="stats" style="grid-template-columns:repeat(2,1fr)">
         {% for s in site.stats %}
         <div class="stat card"><div class="num">{{ s.value }}</div><div class="lbl">{{ s.label }}</div></div>
         {% endfor %}
       </div>
-      <h3 style="margin-bottom:.8rem">Credentials</h3>
-      <div class="badge-row">
-        {% for c in site.credentials %}<span class="badge">{{ c }}</span>{% endfor %}
-      </div>
     </div>
   </div>
 </section>
+
 <section class="section section-alt">
   <div class="container">
     <div class="section-head">
       <p class="kicker">Recognition</p>
-      <h2>Award-nominated work</h2>
+      <h2>Four years an Excellence Awards finalist</h2>
+      <p>Named a finalist by Victoria's electrical industry every year since 2023 — Electrician of the Year (2023, 2024, 2025, 2026), Women in Contracting (2024, 2025) and Champion Awards Electrical Business (2025).</p>
     </div>
-    <div class="grid grid-3">
-      {% for a in site.awards %}
-      <div class="card"><div class="card-icon">🏆</div><p>{{ a }}</p></div>
-      {% endfor %}
+    <div class="award-wall">
+      <figure><img src="{{ images.award2023.src }}" alt="{{ images.award2023.alt }}" loading="lazy"><figcaption>Electrician of the Year<br>Finalist 2023</figcaption></figure>
+      <figure><img src="{{ images.award2024.src }}" alt="{{ images.award2024.alt }}" loading="lazy"><figcaption>Electrician of the Year<br>Finalist 2024</figcaption></figure>
+      <figure><img src="{{ images.awardWic24.src }}" alt="{{ images.awardWic24.alt }}" loading="lazy"><figcaption>Women in Contracting<br>Finalist 2024</figcaption></figure>
+      <figure><img src="{{ images.award2025.src }}" alt="{{ images.award2025.alt }}" loading="lazy"><figcaption>Electrician of the Year<br>Finalist 2025</figcaption></figure>
+      <figure><img src="{{ images.awardWic25.src }}" alt="{{ images.awardWic25.alt }}" loading="lazy"><figcaption>Women in Contracting<br>Finalist 2025</figcaption></figure>
+      <figure><img src="{{ images.awardChamp.src }}" alt="{{ images.awardChamp.alt }}" loading="lazy"><figcaption>Champion Awards<br>Electrical Business 2025</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker">Credentials</p>
+      <h2>Licensed, accredited, insured</h2>
+    </div>
+    <div class="logo-strip" style="margin-bottom:2rem">
+      <img src="{{ images.badgeRec.src }}" alt="{{ images.badgeRec.alt }}" loading="lazy">
+      <img src="{{ images.badgeSaa.src }}" alt="{{ images.badgeSaa.alt }}" loading="lazy">
+      <img src="{{ images.badgeSolvic.src }}" alt="{{ images.badgeSolvic.alt }}" loading="lazy">
+      <img src="{{ images.badgeTesla.src }}" alt="{{ images.badgeTesla.alt }}" loading="lazy">
+      <img src="{{ images.badgePw.src }}" alt="{{ images.badgePw.alt }}" loading="lazy">
+      <img src="{{ images.badgeNetcc.src }}" alt="{{ images.badgeNetcc.alt }}" loading="lazy">
+      <img src="{{ images.badgeMea.src }}" alt="{{ images.badgeMea.alt }}" loading="lazy">
+      <img src="{{ images.badgeSigen.src }}" alt="{{ images.badgeSigen.alt }}" loading="lazy">
+    </div>
+    <div class="badge-row" style="justify-content:center">
+      {% for c in site.credentials %}<span class="badge">{{ c }}</span>{% endfor %}
     </div>
   </div>
 </section>
