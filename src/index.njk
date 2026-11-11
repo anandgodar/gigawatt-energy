@@ -8,9 +8,12 @@ permalink: /
 <section class="hero">
   <div class="container">
     <div class="hero-grid">
-      <div>
+      <div class="hero-head">
         <p class="kicker">Melbourne's north's #1-rated solar &amp; battery installer — 5.0★ on Google</p>
         <h1>The house that stays lit</h1>
+      </div>
+      <div class="hero-widget">{% include "quote-widget.njk" %}</div>
+      <div class="hero-rest">
         <p class="lede">Solar by day, battery by night, backup through blackouts — designed and installed by the award-recognised, family-run electricians of Mickleham. 1,600+ systems on Melbourne roofs, and the licensed electrician who quotes your job is the one who installs it.</p>
         <div class="hero-points">
           <span><strong>5.0★ Google rating</strong>from verified reviews</span>
@@ -19,7 +22,6 @@ permalink: /
         </div>
         <p class="hero-trust">Prefer to talk? Call <a href="tel:{{ site.phone }}" style="color:#fff;font-weight:600">{{ site.phoneDisplay }}</a> — Mon–Fri, 8am–5pm.</p>
       </div>
-      <div>{% include "quote-widget.njk" %}</div>
     </div>
   </div>
 </section>

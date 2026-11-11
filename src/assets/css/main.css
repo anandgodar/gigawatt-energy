@@ -47,8 +47,13 @@ h3{font-size:1.15rem;font-weight:600}
 .main-nav a:hover{color:var(--ink)}
 .main-nav a.nav-cta{color:var(--ink)}
 .nav-toggle{display:none;background:none;border:2px solid var(--ink);border-radius:8px;padding:.35rem .8rem;font-weight:600;cursor:pointer}
+.mobile-cta{display:none}
 @media(max-width:860px){
   .nav-toggle{display:block}
+  .main-nav{display:flex;align-items:center;gap:.6rem}
+  .mobile-cta{display:inline-block;background:var(--accent);color:var(--ink);font-weight:700;border-radius:999px;padding:.45rem .9rem;text-decoration:none;font-size:.88rem;white-space:nowrap}
+  .logo{font-size:1.05rem}
+  .logo svg{width:26px;height:26px}
   .main-nav ul{display:none;position:absolute;top:100%;left:0;right:0;background:var(--surface);flex-direction:column;padding:1.2rem;border-bottom:1px solid var(--line);gap:1rem}
   .main-nav ul.open{display:flex}
 }
@@ -59,8 +64,19 @@ h3{font-size:1.15rem;font-weight:600}
   radial-gradient(640px 640px at 86% 118%,rgba(242,160,31,.38),transparent 62%),
   repeating-linear-gradient(115deg,rgba(143,208,232,.05) 0 2px,transparent 2px 64px);pointer-events:none}
 .hero .container{position:relative;z-index:1}
-.hero-grid{display:grid;grid-template-columns:1.1fr minmax(360px,460px);gap:3.4rem;align-items:center}
-@media(max-width:920px){.hero-grid{grid-template-columns:1fr;gap:2.4rem}}
+.hero-grid{display:grid;grid-template-columns:1.1fr minmax(360px,460px);grid-template-areas:"head widget" "rest widget";column-gap:3.4rem;align-items:center}
+.hero-head{grid-area:head;align-self:end}
+.hero-widget{grid-area:widget}
+.hero-rest{grid-area:rest;align-self:start}
+.hero-rest .lede{margin-top:1.3rem}
+@media(max-width:920px){
+  .hero{padding:2.6rem 0 3rem}
+  .hero-grid{grid-template-columns:1fr;grid-template-areas:"head" "widget" "rest";gap:0}
+  .hero-head h1{font-size:clamp(2rem,8vw,2.5rem)}
+  .hero-widget{margin:1.4rem 0 1.8rem}
+  .hero-rest .lede{margin-top:0}
+  .quote-widget{padding:1.3rem 1.2rem 1.2rem}
+}
 .hero .kicker{color:var(--accent);font-weight:600;font-size:1rem;margin-bottom:1rem;font-family:var(--display)}
 .hero p.lede{max-width:580px;margin:1.3rem 0 2rem;color:#d6dde1;font-size:1.12rem}
 .hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
