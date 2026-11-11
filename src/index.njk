@@ -7,18 +7,22 @@ permalink: /
 ---
 <section class="hero">
   <div class="container">
-    <p class="kicker">Mickleham · Melbourne's North & West · Est. {{ site.founded }}</p>
-    <h1>Solar, battery &amp; EV charger installation done right — by local accredited electricians</h1>
-    <p class="lede">Gigawatt Energy is a family-run, SAA-accredited installer with 1,600+ systems on Melbourne roofs. We design, supply and install CEC-approved solar PV, battery backup and EV charging — and we're the licensed electricians who do the work, not a sales middleman.</p>
-    <div class="hero-actions">
-      <a class="btn btn-accent" href="/contact/">Get a Free Quote</a>
-      <a class="btn btn-ghost" href="/services/">Explore Services</a>
-    </div>
-    <div class="hero-points">
-      <span><strong>5.0★ Google rating</strong>from verified reviews</span>
-      <span><strong>1,600+ installations</strong>across Melbourne</span>
-      <span><strong>Tesla &amp; Sigenergy certified</strong>battery installer</span>
-      <span><strong>REC {{ site.rec | replace("REC-","") }}</strong>Registered Electrical Contractor</span>
+    <div class="hero-grid">
+      <div>
+        <p class="kicker">Family-run in Mickleham, serving Melbourne's north &amp; west since {{ site.founded }}</p>
+        <h1>The house that stays lit</h1>
+        <p class="lede">Solar by day, battery by night, backup through blackouts — designed and installed by the licensed electricians who quote your job, not a sales middleman. 1,600+ systems on Melbourne roofs.</p>
+        <div class="hero-actions">
+          <a class="btn btn-accent" href="/contact/">Get a Free Quote</a>
+          <a class="btn btn-ghost" href="/services/">Explore Services</a>
+        </div>
+        <div class="hero-points">
+          <span><strong>5.0★ Google rating</strong>from verified reviews</span>
+          <span><strong>Tesla &amp; Sigenergy</strong>certified battery installer</span>
+          <span><strong>REC {{ site.rec | replace("REC-","") }}</strong>Registered Electrical Contractor</span>
+        </div>
+      </div>
+      <div>{% include "hero-illustration.njk" %}</div>
     </div>
   </div>
 </section>
@@ -32,40 +36,40 @@ permalink: /
     </div>
     <div class="grid grid-3">
       <div class="card">
-        <div class="card-icon">☀️</div>
+        <div class="card-icon">{{ icons.panel | safe }}</div>
         <h3>Solar Panel Installation</h3>
         <p>Custom-designed solar PV systems using tier-one panels (AIKO, Jinko, LONGi, Trina) to cut your energy bills and carbon footprint.</p>
-        <a class="card-link" href="/services/solar-panel-installation/">Learn more →</a>
+        <a class="card-link" href="/services/solar-panel-installation/">Learn more</a>
       </div>
       <div class="card">
-        <div class="card-icon">🔋</div>
+        <div class="card-icon">{{ icons.battery | safe }}</div>
         <h3>Solar + Battery with Backup</h3>
         <p>Solar power that works day and night. Store what you generate and keep the lights on through blackouts with whole-home backup options.</p>
-        <a class="card-link" href="/services/solar-battery-backup-installation/">Learn more →</a>
+        <a class="card-link" href="/services/solar-battery-backup-installation/">Learn more</a>
       </div>
       <div class="card">
-        <div class="card-icon">⚡</div>
+        <div class="card-icon">{{ icons.retrofit | safe }}</div>
         <h3>Battery Retrofit (Existing Solar)</h3>
         <p>Already have panels? Add a Tesla Powerwall, Sigenergy or Sungrow battery with backup supply to stop exporting cheap and buying back dear.</p>
-        <a class="card-link" href="/services/battery-retrofit-installation/">Learn more →</a>
+        <a class="card-link" href="/services/battery-retrofit-installation/">Learn more</a>
       </div>
       <div class="card">
-        <div class="card-icon">🚗</div>
+        <div class="card-icon">{{ icons.ev | safe }}</div>
         <h3>EV Charger Installation</h3>
         <p>Home and business EV charging, installed safely — we assess cable routing, switchboard capacity and any upgrades needed before we quote.</p>
-        <a class="card-link" href="/services/ev-charger-installation/">Learn more →</a>
+        <a class="card-link" href="/services/ev-charger-installation/">Learn more</a>
       </div>
       <div class="card">
-        <div class="card-icon">🧰</div>
+        <div class="card-icon">{{ icons.switchboard | safe }}</div>
         <h3>Switchboard Upgrades</h3>
         <p>Modern solar, battery and EV systems need compliant switchboards with room to grow. We upgrade yours safely and to standard.</p>
-        <a class="card-link" href="/services/switchboard-upgrades/">Learn more →</a>
+        <a class="card-link" href="/services/switchboard-upgrades/">Learn more</a>
       </div>
       <div class="card" style="background:var(--ink);color:#fff;border:0">
-        <div class="card-icon" style="background:rgba(245,166,35,.25)">💬</div>
+        <div class="card-icon" style="background:rgba(242,160,31,.25);color:var(--accent)">{{ icons.chat | safe }}</div>
         <h3 style="color:#fff">Not sure what you need?</h3>
         <p style="color:#b9c4cb">Tell us about your home and bills, and we'll design the right system — no pushy sales, just an electrician's honest advice.</p>
-        <a class="card-link" href="/contact/" style="color:var(--accent)">Get a free quote →</a>
+        <a class="card-link" href="/contact/" style="color:var(--accent)">Get a free quote</a>
       </div>
     </div>
   </div>
@@ -77,6 +81,19 @@ permalink: /
       {% for s in site.stats %}
       <div class="stat"><div class="num">{{ s.value }}</div><div class="lbl">{{ s.label }}</div></div>
       {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="reviews-band">
+      <div>
+        <div class="rating">5.0</div>
+        <div class="stars">{% for i in range(0,5) %}{{ icons.star | safe }}{% endfor %}</div>
+      </div>
+      <p>Rated 5.0 on Google by Melbourne homeowners — for clear communication, competitive quotes and workmanship that passes inspection first time.</p>
+      <a class="btn btn-accent" href="https://www.google.com/search?q=Gigawatt+Energy+Mickleham+reviews" rel="noopener">Read our Google reviews</a>
     </div>
   </div>
 </section>

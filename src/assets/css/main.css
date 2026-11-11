@@ -1,23 +1,27 @@
 /* Gigawatt Energy — design system */
 :root{
-  --ink:#141a1f;          /* near-black charcoal */
-  --ink-soft:#3c4852;
-  --paper:#fbfaf7;        /* warm off-white */
+  --ink:#1b2227;          /* ink */
+  --ink-soft:#44525c;
+  --paper:#f6f3ec;        /* warm paper */
   --surface:#ffffff;
-  --accent:#f5a623;       /* solar amber */
-  --accent-deep:#d98b0e;
-  --green:#1e7a4f;        /* renewable green */
-  --line:#e6e2d8;
+  --accent:#f2a01f;       /* solar amber */
+  --accent-deep:#cf830c;
+  --green:#1e7a4f;        /* eco green */
+  --dusk:#0e2a38;         /* dusk blue — evening hours */
+  --dusk-2:#1d4a5c;
+  --line:#e4ded0;
   --radius:14px;
   --maxw:1160px;
+  --display:"Bricolage Grotesque","Avenir Next",system-ui,sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:"Avenir Next",Avenir,"Segoe UI",system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--paper);line-height:1.65;font-size:17px}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
 img{max-width:100%;display:block}
 a{color:var(--green)}
-h1,h2,h3{line-height:1.15;letter-spacing:-.015em}
-h1{font-size:clamp(2.1rem,4.5vw,3.4rem);font-weight:700}
+h1,h2,h3{font-family:var(--display);line-height:1.12;letter-spacing:-.01em}
+h1{font-size:clamp(2.2rem,4.6vw,3.5rem);font-weight:700}
 h2{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:700}
 h3{font-size:1.15rem;font-weight:600}
 .container{max-width:var(--maxw);margin:0 auto;padding:0 22px}
@@ -49,21 +53,23 @@ h3{font-size:1.15rem;font-weight:600}
   .main-nav ul.open{display:flex}
 }
 
-/* Hero */
-.hero{background:linear-gradient(160deg,#10161b 0%,#1b2a33 55%,#23404a 100%);color:#fff;padding:5.5rem 0 4.5rem;position:relative;overflow:hidden}
-.hero::after{content:"";position:absolute;right:-180px;top:-180px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(245,166,35,.28),transparent 65%)}
+/* Hero — dusk split with illustration */
+.hero{background:linear-gradient(165deg,var(--dusk) 0%,var(--dusk-2) 60%,#2a5e70 100%);color:#fff;padding:4.6rem 0 4.2rem;position:relative;overflow:hidden}
 .hero .container{position:relative;z-index:1}
-.hero .kicker{color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:.82rem;margin-bottom:1rem}
-.hero p.lede{max-width:620px;margin:1.3rem 0 2rem;color:#d6dde1;font-size:1.12rem}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:3rem;align-items:center}
+@media(max-width:920px){.hero-grid{grid-template-columns:1fr}}
+.hero-art{width:100%;height:auto;filter:drop-shadow(0 24px 48px rgba(0,0,0,.35))}
+.hero .kicker{color:var(--accent);font-weight:600;font-size:1rem;margin-bottom:1rem;font-family:var(--display)}
+.hero p.lede{max-width:580px;margin:1.3rem 0 2rem;color:#d6dde1;font-size:1.12rem}
 .hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
-.hero-points{display:flex;gap:2rem;flex-wrap:wrap;margin-top:2.6rem;padding-top:1.8rem;border-top:1px solid rgba(255,255,255,.15)}
+.hero-points{display:flex;gap:2rem;flex-wrap:wrap;margin-top:2.4rem;padding-top:1.7rem;border-top:1px solid rgba(255,255,255,.15)}
 .hero-points span{color:#cfd8dc;font-size:.95rem}
-.hero-points strong{display:block;color:#fff;font-size:1.05rem}
+.hero-points strong{display:block;color:#fff;font-size:1.05rem;font-family:var(--display)}
 
 /* Sections */
 .section{padding:4.2rem 0}
 .section-alt{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.section .kicker{color:var(--accent-deep);font-weight:700;text-transform:uppercase;letter-spacing:.12em;font-size:.8rem}
+.section .kicker{color:var(--accent-deep);font-weight:600;font-size:1rem;font-family:var(--display)}
 .section-head{max-width:680px;margin-bottom:2.4rem}
 .section-head p{color:var(--ink-soft);margin-top:.7rem}
 
@@ -79,7 +85,15 @@ h3{font-size:1.15rem;font-weight:600}
 .card h3{margin-bottom:.55rem}
 .card p{color:var(--ink-soft);font-size:.97rem}
 .card .card-link{display:inline-block;margin-top:.9rem;font-weight:600;text-decoration:none}
-.card-icon{width:46px;height:46px;border-radius:12px;background:rgba(245,166,35,.16);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;font-size:1.35rem}
+.card-icon{width:50px;height:50px;border-radius:12px;background:rgba(242,160,31,.14);color:var(--accent-deep);display:flex;align-items:center;justify-content:center;margin-bottom:1rem}
+.card .card-link{text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:2px;text-decoration-color:var(--accent)}
+
+/* Reviews band */
+.reviews-band{background:var(--dusk);color:#fff;border-radius:var(--radius);padding:2.4rem;display:grid;grid-template-columns:auto 1fr auto;gap:2rem;align-items:center}
+@media(max-width:800px){.reviews-band{grid-template-columns:1fr;text-align:center}}
+.reviews-band .rating{font-family:var(--display);font-size:3.2rem;font-weight:700;line-height:1}
+.reviews-band .stars{color:var(--accent);display:flex;gap:.2rem;margin-top:.4rem;justify-content:inherit}
+.reviews-band p{color:#c7d3d9;max-width:46ch}
 
 /* Stats */
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;text-align:center}
