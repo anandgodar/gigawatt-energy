@@ -41,7 +41,10 @@ h3{font-size:1.15rem;font-weight:600}
 .site-header{position:sticky;top:0;z-index:50;background:rgba(251,250,247,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 .header-inner{display:flex;align-items:center;justify-content:space-between;padding-top:.8rem;padding-bottom:.8rem}
 .logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;color:var(--ink);font-size:1.25rem}
-.logo-badge{border-radius:50%;box-shadow:0 2px 8px rgba(20,26,31,.18)}
+.logo-mark{display:block}
+.nav-phone{display:inline-flex;align-items:center;gap:.4rem;font-weight:700;color:var(--ink)!important;white-space:nowrap}
+.nav-phone svg{color:var(--accent-deep)}
+.mobile-call{display:none}
 .logo strong{color:var(--green)}
 .main-nav ul{display:flex;gap:1.4rem;list-style:none;align-items:center}
 .main-nav a{text-decoration:none;color:var(--ink-soft);font-weight:500}
@@ -53,6 +56,8 @@ h3{font-size:1.15rem;font-weight:600}
   .nav-toggle{display:block}
   .main-nav{display:flex;align-items:center;gap:.6rem}
   .mobile-cta{display:inline-block;background:var(--accent);color:var(--ink);font-weight:700;border-radius:999px;padding:.45rem .9rem;text-decoration:none;font-size:.88rem;white-space:nowrap}
+  .mobile-call{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;background:var(--dusk);color:#fff}
+  .logo span{display:none}
   .logo{font-size:1.05rem}
   .logo svg{width:26px;height:26px}
   .main-nav ul{display:none;position:absolute;top:100%;left:0;right:0;background:var(--surface);flex-direction:column;padding:1.2rem;border-bottom:1px solid var(--line);gap:1rem}
@@ -60,10 +65,8 @@ h3{font-size:1.15rem;font-weight:600}
 }
 
 /* Hero — dusk backdrop, quote widget as the hero */
-.hero{background:linear-gradient(170deg,rgba(10,26,36,.88) 0%,rgba(14,42,56,.86) 55%,rgba(31,70,86,.84) 100%),url(/assets/img/brand/melbourne-north-rooftop-solar-aerial.jpg) center/cover no-repeat;color:#fff;padding:4.2rem 0 4.4rem;position:relative;overflow:hidden}
-.hero::before{content:"";position:absolute;inset:0;background:
-  radial-gradient(640px 640px at 86% 118%,rgba(242,160,31,.38),transparent 62%),
-  repeating-linear-gradient(115deg,rgba(143,208,232,.05) 0 2px,transparent 2px 64px);pointer-events:none}
+.hero{background:linear-gradient(175deg,rgba(9,21,29,.94) 0%,rgba(12,32,44,.92) 60%,rgba(14,42,56,.95) 100%),url(/assets/img/brand/melbourne-north-rooftop-solar-aerial.jpg) center 30%/cover no-repeat;color:#fff;padding:4.2rem 0 4.4rem;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(560px 560px at 88% 120%,rgba(242,160,31,.18),transparent 60%);pointer-events:none}
 .hero .container{position:relative;z-index:1}
 .hero-grid{display:grid;grid-template-columns:1.1fr minmax(360px,460px);grid-template-areas:"head widget" "rest widget";column-gap:3.4rem;align-items:center}
 .hero-head{grid-area:head;align-self:end}
