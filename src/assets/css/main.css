@@ -221,8 +221,8 @@ h3{font-size:1.15rem;font-weight:600}
 
 /* Trust strip + logo rows */
 .trust-strip{background:var(--surface);border-bottom:1px solid var(--line);padding:1.3rem 0}
-.logo-strip{display:flex;flex-wrap:wrap;gap:1.8rem 2.4rem;align-items:center;justify-content:center}
-.logo-strip img{height:52px;width:auto;max-width:150px;object-fit:contain}
+.logo-strip{display:flex;flex-wrap:wrap;gap:1.4rem 1.9rem;align-items:center;justify-content:center}
+.logo-strip img{height:42px;width:auto;max-width:124px;object-fit:contain}
 .logo-strip.brands img{height:32px;filter:grayscale(1);opacity:.55;transition:.2s}
 .logo-strip.brands img:hover{filter:none;opacity:1}
 
