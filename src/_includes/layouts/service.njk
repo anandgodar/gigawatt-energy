@@ -47,6 +47,7 @@ layout: layouts/base.njk
 </div>
 <div class="section">
   <div class="container prose">
+    {% if photo %}<figure class="service-photo"><img src="{{ photo }}" alt="{{ photoAlt }}" loading="lazy"></figure>{% endif %}
     {{ content | safe }}
     <div class="reviews-band" style="margin-top:2.6rem">
       <div>

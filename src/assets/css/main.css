@@ -40,7 +40,8 @@ h3{font-size:1.15rem;font-weight:600}
 /* Header */
 .site-header{position:sticky;top:0;z-index:50;background:rgba(251,250,247,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 .header-inner{display:flex;align-items:center;justify-content:space-between;padding-top:.8rem;padding-bottom:.8rem}
-.logo{display:flex;align-items:center;gap:.5rem;text-decoration:none;color:var(--ink);font-size:1.25rem}
+.logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;color:var(--ink);font-size:1.25rem}
+.logo-badge{border-radius:50%;box-shadow:0 2px 8px rgba(20,26,31,.18)}
 .logo strong{color:var(--green)}
 .main-nav ul{display:flex;gap:1.4rem;list-style:none;align-items:center}
 .main-nav a{text-decoration:none;color:var(--ink-soft);font-weight:500}
@@ -59,7 +60,7 @@ h3{font-size:1.15rem;font-weight:600}
 }
 
 /* Hero — dusk backdrop, quote widget as the hero */
-.hero{background:linear-gradient(168deg,var(--dusk) 0%,var(--dusk-2) 55%,#2a5e70 100%);color:#fff;padding:4.2rem 0 4.4rem;position:relative;overflow:hidden}
+.hero{background:linear-gradient(170deg,rgba(10,26,36,.88) 0%,rgba(14,42,56,.86) 55%,rgba(31,70,86,.84) 100%),url(/assets/img/brand/melbourne-north-rooftop-solar-aerial.jpg) center/cover no-repeat;color:#fff;padding:4.2rem 0 4.4rem;position:relative;overflow:hidden}
 .hero::before{content:"";position:absolute;inset:0;background:
   radial-gradient(640px 640px at 86% 118%,rgba(242,160,31,.38),transparent 62%),
   repeating-linear-gradient(115deg,rgba(143,208,232,.05) 0 2px,transparent 2px 64px);pointer-events:none}
@@ -176,6 +177,27 @@ h3{font-size:1.15rem;font-weight:600}
 .post-tag{display:inline-block;background:rgba(30,122,79,.12);color:var(--green);border-radius:999px;padding:.15rem .75rem;font-size:.78rem;font-weight:600;margin-bottom:.7rem}
 .video-embed{position:relative;aspect-ratio:16/9;margin:1.6rem 0;border-radius:var(--radius);overflow:hidden;background:#000}
 .video-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+/* Film section */
+.film-frame{position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:0 26px 60px rgba(5,18,26,.35);background:#000}
+.film-frame video{display:block;width:100%;height:auto}
+.film-caption{font-size:.88rem;color:var(--ink-soft);margin-top:.8rem}
+
+/* Amrit profile */
+.amrit{background:var(--dusk);color:#fff;border-radius:var(--radius);overflow:hidden;display:grid;grid-template-columns:.9fr 1.1fr;align-items:stretch}
+@media(max-width:860px){.amrit{grid-template-columns:1fr}}
+.amrit-photo{min-height:320px;background-size:cover;background-position:center 20%}
+.amrit-body{padding:2.4rem}
+.amrit-body h2{color:#fff;margin-bottom:.4rem}
+.amrit-role{color:var(--accent);font-weight:600;font-family:var(--display);margin-bottom:1rem}
+.amrit-body p{color:#c7d3d9;margin-bottom:.9rem}
+.amrit-badges{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.2rem}
+.amrit-badges .badge{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.2);color:#d4dde2}
+
+/* Service page figure */
+.service-photo{margin:0 0 2rem}
+.service-photo img{width:100%;border-radius:var(--radius);box-shadow:0 18px 40px rgba(20,26,31,.18)}
+.service-photo figcaption{font-size:.84rem;color:var(--ink-soft);margin-top:.6rem}
 
 /* Trust strip + logo rows */
 .trust-strip{background:var(--surface);border-bottom:1px solid var(--line);padding:1.3rem 0}

@@ -1,4 +1,4 @@
-<div class="quote-widget" data-endpoint="">
+<div class="quote-widget" data-endpoint="/api/quote">
   <div class="qw-head">
     <h2 class="qw-title">Get your free quote</h2>
     <p class="qw-progress"><span class="qw-step-label">Step 1 of 3</span> · takes about 60 seconds</p>
@@ -81,8 +81,8 @@
 
     <!-- Done -->
     <div class="qw-panel qw-done" data-step="4" hidden aria-live="polite">
-      <h3>Thanks — request ready to send</h3>
-      <p class="qw-done-msg">We've opened an email with your details addressed to our team — just press send. Prefer to talk now? Call <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a>.</p>
+      <h3 class="qw-done-title">Thank you!</h3>
+      <p class="qw-done-msg"></p>
     </div>
   </form>
 </div>
@@ -110,12 +110,23 @@
   if(bill)bill.addEventListener('input',function(){out.textContent='$'+bill.value;});
   form.addEventListener('submit',function(e){e.preventDefault();if(!valid(3))return;
     var d=new FormData(form),o={};d.forEach(function(v,k){o[k]=v;});
-    var ep=w.dataset.endpoint;
+    var ep=w.dataset.endpoint,first=o.name.trim().split(/\s+/)[0],
+        title=w.querySelector('.qw-done-title'),msg=w.querySelector('.qw-done-msg');
     if(ep){fetch(ep,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(o)})
-      .then(function(){w.querySelector('.qw-done-msg').textContent='Got it — a local electrician will call you back shortly.';show(4);})
+      .then(function(r){return r.ok?r.json():Promise.reject();})
+      .then(function(res){
+        title.textContent='Thank you, '+first+'!';
+        msg.innerHTML=(res.emailed
+          ?'Your quote request is in — a confirmation email is on its way to <strong>'+o.email.replace(/</g,'&lt;')+'</strong>. '
+          :'Your quote request is in. ')
+          +'A licensed electrician will call you back ('+(o.callback||'anytime')+', Mon–Fri 8am–5pm). Need us sooner? Call <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a>.';
+        show(4);})
       .catch(function(){fallback(o);});}
     else fallback(o);
-    function fallback(o){var body='Quote request from the website%0D%0A%0D%0A'+
+    function fallback(o){
+      w.querySelector('.qw-done-title').textContent='Thank you, '+o.name.trim().split(/\s+/)[0]+'!';
+      w.querySelector('.qw-done-msg').textContent="We've opened an email with your details addressed to our team — just press send. Prefer to talk now? Call {{ site.phoneDisplay }}.";
+      var body='Quote request from the website%0D%0A%0D%0A'+
       ['Service: '+o.service,'Suburb: '+o.suburb,'Property: '+o.property,'Supply: '+o.phase,
        'Quarterly bill: ~$'+o.bill,'Existing solar: '+o.existing,'','Name: '+o.name,
        'Phone: '+o.phone,'Email: '+o.email,'Best time to call: '+o.callback].join('%0D%0A');

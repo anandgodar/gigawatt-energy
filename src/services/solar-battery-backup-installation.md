@@ -6,6 +6,8 @@ lede: Generate your own power, store it, and keep the essentials running through
 metaTitle: Solar & Battery with Backup Installation Melbourne
 metaDescription: "Solar and battery backup installation in Melbourne. Tesla Powerwall & Sigenergy certified. Whole-home backup options, 5-year workmanship warranty. Free quotes."
 permalink: /services/solar-battery-backup-installation/
+photo: /assets/img/brand/solar-battery-night-installation-backup.jpg
+photoAlt: "Gigawatt Energy electricians finishing a solar and battery backup installation at night under headlamps"
 serviceType: Solar and Battery Storage Installation
 faqs:
   - q: What happens during a blackout?

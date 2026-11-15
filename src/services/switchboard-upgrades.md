@@ -6,6 +6,8 @@ lede: Modern energy systems need compliant switchboards with room to grow. We up
 metaTitle: Switchboard Upgrades Melbourne — Solar & EV Ready
 metaDescription: "Switchboard upgrades in Melbourne by a Registered Electrical Contractor. Safety switches, surge protection, solar & EV-ready capacity. Fixed quotes."
 permalink: /services/switchboard-upgrades/
+photo: /assets/img/brand/switchboard-upgrade-surge-protection-melbourne.jpg
+photoAlt: "Upgraded switchboard with RCBOs and surge protection by Gigawatt Energy"
 serviceType: Switchboard Upgrade
 faqs:
   - q: How do I know if my switchboard needs upgrading?

@@ -6,6 +6,8 @@ lede: Custom-designed, CEC-approved solar PV systems installed by our in-house l
 metaTitle: Solar Panel Installation Melbourne
 metaDescription: "CEC-approved solar panel installation in Melbourne by SAA-accredited electricians. Tier-one panels, 5-year workmanship warranty, rebates handled. Free quotes."
 permalink: /services/solar-panel-installation/
+photo: /assets/img/brand/solar-panel-installation-metal-roof-melbourne.jpg
+photoAlt: "Gigawatt Energy installing tier-one solar panels on a Melbourne metal roof"
 serviceType: Solar Panel Installation
 faqs:
   - q: How big a solar system do I need?

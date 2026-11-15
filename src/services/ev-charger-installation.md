@@ -6,6 +6,8 @@ lede: Charge overnight at a fraction of public-charging cost. We assess cable ro
 metaTitle: EV Charger Installation Melbourne — Home & Business
 metaDescription: "Home & business EV charger installation in Melbourne by licensed electricians. Switchboard assessment, solar integration, single & 3-phase. Free quotes."
 permalink: /services/ev-charger-installation/
+photo: /assets/img/brand/tesla-ev-charger-installation-melbourne.jpg
+photoAlt: "Tesla wall connector EV charger installed by Gigawatt Energy in Melbourne"
 serviceType: EV Charger Installation
 faqs:
   - q: Can my switchboard handle an EV charger?

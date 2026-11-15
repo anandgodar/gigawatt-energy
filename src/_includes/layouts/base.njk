@@ -9,7 +9,7 @@
   <meta name="robots" content="noindex, nofollow">
   {%- endif %}
   <link rel="canonical" href="{{ site.url }}{{ page.url }}">
-  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/assets/img/favicon.png" type="image/png">
   <meta property="og:type" content="{{ ogType or 'website' }}">
   <meta property="og:site_name" content="{{ site.name }}">
   <meta property="og:title" content="{{ metaTitle or title }} | {{ site.name }}">
@@ -35,6 +35,8 @@
     "legalName": "{{ site.legalName }}",
     "url": "{{ site.url }}",
     "image": "{{ site.url }}/assets/img/og-image.png",
+    "logo": "{{ site.url }}/assets/img/brand/gigawatt-energy-logo.png",
+    "founder": { "@type": "Person", "name": "Amrit Singh Thapa", "jobTitle": "'A' Grade Electrician & SAA Accredited Solar and Battery Installer" },
     "telephone": "{{ site.phone }}",
     "email": "{{ site.email }}",
     "foundingDate": "{{ site.founded }}",
@@ -62,7 +64,7 @@
 <header class="site-header">
   <div class="container header-inner">
     <a href="/" class="logo" aria-label="{{ site.name }} home">
-      <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><path d="M19 2 6 19h8l-3 13 14-18h-8l2-12z" fill="var(--accent)"/></svg>
+      <img src="/assets/img/brand/gigawatt-energy-logo-96.png" alt="" width="44" height="44" class="logo-badge">
       <span>Gigawatt<strong>Energy</strong></span>
     </a>
     <nav class="main-nav" aria-label="Main">
@@ -100,7 +102,7 @@
 <footer class="site-footer">
   <div class="container footer-grid">
     <div>
-      <p class="footer-logo">Gigawatt<strong>Energy</strong></p>
+      <p class="footer-logo"><img src="/assets/img/brand/gigawatt-energy-logo-96.png" alt="Gigawatt Energy logo" width="56" height="56" style="border-radius:50%;margin-bottom:.7rem;display:block">Gigawatt<strong>Energy</strong></p>
       <p>{{ site.description }}</p>
       <p class="footer-cred">Registered Electrical Contractor {{ site.rec }}<br>SAA Accredited Installer · NETCC Approved Seller</p>
     </div>

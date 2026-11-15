@@ -6,6 +6,8 @@ lede: Already have panels? Stop exporting cheap and buying back dear — retrofi
 metaTitle: Battery Retrofit Installation Melbourne — Add Battery to Existing Solar
 metaDescription: "Add a battery to your existing solar in Melbourne. Tesla Powerwall & Sigenergy certified. Free compatibility check, backup supply, rebates handled."
 permalink: /services/battery-retrofit-installation/
+photo: /assets/img/brand/licensed-electrician-ladder-work.jpg
+photoAlt: "Licensed Gigawatt Energy electrician working from a ladder on a battery retrofit"
 serviceType: Battery Storage Retrofit Installation
 faqs:
   - q: Will a battery work with my existing solar system?

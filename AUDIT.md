@@ -2,10 +2,10 @@
 
 ## Release blockers (must clear before going live)
 
-- [ ] **Contact form is inert** — `action="#"`. Wire to live endpoint and test a real enquiry end-to-end.
+- [ ] **Thank-you emails need one env var** — the wizard now POSTs to `/api/quote` (Cloudflare Pages Function). Add `RESEND_API_KEY` in Cloudflare Pages → Settings → Environment variables and verify gigawattenergy.com.au in resend.com (free tier). Until then the function accepts the lead and the widget falls back to a pre-filled email; after the key is set, the team gets a notification and the customer gets an automatic thank-you email. Test one real submission end-to-end.
 - [ ] **Site-wide noindex active** — `production: false` in `src/_data/site.js`. Flip only at launch.
 - [ ] **Sample blog posts** — both posts are format demos; the Craigieburn post embeds a placeholder YouTube ID. Replace before launch.
-- [ ] **No real imagery** — old site's photos were NOT copied (rights + quality). Add own installation photos.
+- [x] **Real imagery added** — logo, Amrit profile photo, install/EV/switchboard stills and the 2-minute brand film, all extracted from the owner's uploaded brand video.
 - [ ] **301 redirect map** from old WordPress URLs not yet deployed (list in README).
 - [ ] **Facts to confirm with owner**: 1,600+ installs figure, award list incl. 2026 finalist, all credentials current (REC-32099, SAA, NETCC, Tesla, Sigenergy, Solar Victoria), rebate wording still accurate at launch date.
 
