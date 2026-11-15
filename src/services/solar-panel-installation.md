@@ -8,6 +8,20 @@ metaDescription: "CEC-approved solar panel installation in Melbourne by SAA-accr
 permalink: /services/solar-panel-installation/
 photo: /assets/img/brand/solar-panel-installation-metal-roof-melbourne.jpg
 photoAlt: "Gigawatt Energy installing tier-one solar panels on a Melbourne metal roof"
+includes:
+  - t: "Site assessment and custom design"
+    d: "roof orientation, shading, switchboard condition and your actual usage profile"
+  - t: "Tier-one, CEC-approved hardware"
+    d: "panels and inverters with full manufacturer warranties"
+  - t: "Grid pre-approval and rebate paperwork"
+    d: "including Solar Victoria rebate and interest-free loan applications where eligible"
+  - t: "Installation by licensed electricians"
+    d: "our own team, to Australian standards"
+  - t: "Smart monitoring"
+    d: "set up on your phone and explained before we leave"
+  - t: "5-year installation workmanship warranty"
+    d: ""
+preselect: "Solar panels"
 serviceType: Solar Panel Installation
 faqs:
   - q: How big a solar system do I need?
@@ -21,14 +35,6 @@ faqs:
 ---
 Switching to solar is the single biggest step most Melbourne households can take to cut energy bills. A well-designed system generates clean power through the day, slashes what you buy from the grid, and pays for itself in a few years — faster with Victorian rebates.
 
-## What's included
-
-- **Site assessment and custom design** — roof orientation, shading, switchboard condition and your actual usage profile
-- **Tier-one, CEC-approved hardware** — panels and inverters with full manufacturer warranties
-- **Grid pre-approval and rebate paperwork** — including Solar Victoria rebate and interest-free loan applications where eligible
-- **Installation by licensed electricians** — our own team, to Australian standards
-- **Smart monitoring** — set up on your phone and explained before we leave
-- **5-year installation workmanship warranty**
 
 ## Why design matters more than price-per-panel
 

@@ -8,6 +8,18 @@ metaDescription: "Home & business EV charger installation in Melbourne by licens
 permalink: /services/ev-charger-installation/
 photo: /assets/img/brand/tesla-ev-charger-installation-melbourne.jpg
 photoAlt: "Tesla wall connector EV charger installed by Gigawatt Energy in Melbourne"
+includes:
+  - t: "Site assessment"
+    d: "cable routing, installation difficulty, switchboard capacity and any upgrades needed"
+  - t: "The right charger for your car"
+    d: "single-phase and three-phase options from quality brands"
+  - t: "Solar integration"
+    d: "divert excess solar into your EV automatically"
+  - t: "Compliant installation"
+    d: "by our in-house licensed electricians, to Australian standards"
+  - t: "5-year installation workmanship warranty"
+    d: ""
+preselect: "EV charger"
 serviceType: EV Charger Installation
 faqs:
   - q: Can my switchboard handle an EV charger?
@@ -21,13 +33,6 @@ faqs:
 ---
 Home charging is the cheapest and most convenient way to run an EV — especially paired with solar or an off-peak tariff. As licensed electricians, we handle the full job: assessment, any switchboard work, compliant installation and commissioning.
 
-## What's included
-
-- **Site assessment** — cable routing, installation difficulty, switchboard capacity and any upgrades needed
-- **The right charger for your car** — single-phase and three-phase options from quality brands
-- **Solar integration** — divert excess solar into your EV automatically
-- **Compliant installation** — by our in-house licensed electricians, to Australian standards
-- **5-year installation workmanship warranty**
 
 ## Why the assessment matters
 

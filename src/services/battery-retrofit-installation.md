@@ -8,6 +8,20 @@ metaDescription: "Add a battery to your existing solar in Melbourne. Tesla Power
 permalink: /services/battery-retrofit-installation/
 photo: /assets/img/brand/licensed-electrician-ladder-work.jpg
 photoAlt: "Licensed Gigawatt Energy electrician working from a ladder on a battery retrofit"
+includes:
+  - t: "Free compatibility assessment"
+    d: "your existing inverter, panels, metering and switchboard"
+  - t: "Certified installation"
+    d: "Tesla Powerwall Certified Reseller & Installer, Sigenergy Certified Installer; we also fit Sungrow, GoodWe and Fox ESS"
+  - t: "Backup supply configuration"
+    d: "essential circuits or whole-home, explained before you sign"
+  - t: "Rebate handling"
+    d: "current federal battery incentives applied for eligible homes"
+  - t: "Smart monitoring"
+    d: "one app for solar, storage and usage"
+  - t: "5-year installation workmanship warranty"
+    d: ""
+preselect: "Battery retrofit"
 serviceType: Battery Storage Retrofit Installation
 faqs:
   - q: Will a battery work with my existing solar system?
@@ -21,14 +35,6 @@ faqs:
 ---
 If your solar was installed a few years ago, you're probably exporting power for a few cents and buying it back in the evening for ten times that. A retrofit battery captures that gap — and with backup supply configured, it also keeps your home running through outages.
 
-## What's included
-
-- **Free compatibility assessment** — your existing inverter, panels, metering and switchboard
-- **Certified installation** — Tesla Powerwall Certified Reseller & Installer, Sigenergy Certified Installer; we also fit Sungrow, GoodWe and Fox ESS
-- **Backup supply configuration** — essential circuits or whole-home, explained before you sign
-- **Rebate handling** — current federal battery incentives applied for eligible homes
-- **Smart monitoring** — one app for solar, storage and usage
-- **5-year installation workmanship warranty**
 
 ## What we check before we quote
 

@@ -1,4 +1,4 @@
-<div class="quote-widget" data-endpoint="/api/quote">
+<div class="quote-widget" data-endpoint="/api/quote"{% if preselect %} data-preselect="{{ preselect }}"{% endif %}>
   <div class="qw-head">
     <h2 class="qw-title">Get your free quote</h2>
     <p class="qw-progress"><span class="qw-step-label">Step 1 of 3</span> · takes about 60 seconds</p>
@@ -106,6 +106,8 @@
   w.addEventListener('click',function(e){
     if(e.target.closest('.qw-next')){if(valid(step))show(step+1);}
     if(e.target.closest('.qw-back'))show(step-1);});
+  var pre=w.dataset.preselect;
+  if(pre){var r=form.querySelector('[name=service][value="'+pre+'"]');if(r)r.checked=true;}
   var bill=form.querySelector('#qw-bill'),out=form.querySelector('#qw-bill-out');
   if(bill)bill.addEventListener('input',function(){out.textContent='$'+bill.value;});
   form.addEventListener('submit',function(e){e.preventDefault();if(!valid(3))return;

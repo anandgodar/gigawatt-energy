@@ -8,6 +8,20 @@ metaDescription: "Solar and battery backup installation in Melbourne. Tesla Powe
 permalink: /services/solar-battery-backup-installation/
 photo: /assets/img/brand/solar-battery-night-installation-backup.jpg
 photoAlt: "Gigawatt Energy electricians finishing a solar and battery backup installation at night under headlamps"
+includes:
+  - t: "Custom solar + storage design"
+    d: "sized from your real usage, not a template"
+  - t: "Certified battery installation"
+    d: "Tesla Powerwall Certified and Sigenergy Certified installer"
+  - t: "Backup configuration"
+    d: "essential circuits or whole-home backup, single- and three-phase"
+  - t: "Rebate handling"
+    d: "federal battery incentives and Solar Victoria programs where eligible"
+  - t: "Smart monitoring"
+    d: "see generation, storage and usage live on your phone"
+  - t: "5-year installation workmanship warranty"
+    d: ""
+preselect: "Solar + battery"
 serviceType: Solar and Battery Storage Installation
 faqs:
   - q: What happens during a blackout?
@@ -21,14 +35,6 @@ faqs:
 ---
 Solar alone cuts your daytime bills — but most households use the bulk of their power in the evening. Adding a battery lets you store the day's generation and use it when the sun's down, and with backup capability you stay powered through grid outages too.
 
-## What's included
-
-- **Custom solar + storage design** — sized from your real usage, not a template
-- **Certified battery installation** — Tesla Powerwall Certified and Sigenergy Certified installer
-- **Backup configuration** — essential circuits or whole-home backup, single- and three-phase
-- **Rebate handling** — federal battery incentives and Solar Victoria programs where eligible
-- **Smart monitoring** — see generation, storage and usage live on your phone
-- **5-year installation workmanship warranty**
 
 ## Whole-home vs essential-circuit backup
 

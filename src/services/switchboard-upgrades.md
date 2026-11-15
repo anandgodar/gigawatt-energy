@@ -8,6 +8,20 @@ metaDescription: "Switchboard upgrades in Melbourne by a Registered Electrical C
 permalink: /services/switchboard-upgrades/
 photo: /assets/img/brand/switchboard-upgrade-surge-protection-melbourne.jpg
 photoAlt: "Upgraded switchboard with RCBOs and surge protection by Gigawatt Energy"
+includes:
+  - t: "Full assessment"
+    d: "capacity, condition, compliance and space for planned circuits"
+  - t: "Safety switches (RCDs) on all circuits"
+    d: "as current standards require"
+  - t: "Surge protection"
+    d: "protecting inverters, batteries and appliances"
+  - t: "Clean, labelled, compliant board"
+    d: "with room for solar, battery backup and EV charging circuits"
+  - t: "Certificate of Electrical Safety"
+    d: "issued on completion"
+  - t: "Work by a Registered Electrical Contractor"
+    d: "REC-32099"
+preselect: "Switchboard upgrade"
 serviceType: Switchboard Upgrade
 faqs:
   - q: How do I know if my switchboard needs upgrading?
@@ -21,14 +35,6 @@ faqs:
 ---
 Your switchboard is the heart of your home's electrical system — and the first thing we look at before installing solar, a battery or an EV charger. Many Melbourne homes built before the 2000s are still running boards that can't safely take modern loads.
 
-## What's included
-
-- **Full assessment** — capacity, condition, compliance and space for planned circuits
-- **Safety switches (RCDs) on all circuits** — as current standards require
-- **Surge protection** — protecting inverters, batteries and appliances
-- **Clean, labelled, compliant board** — with room for solar, battery backup and EV charging circuits
-- **Certificate of Electrical Safety** — issued on completion
-- **Work by a Registered Electrical Contractor** — REC-32099
 
 ## Future-proofing, not just fixing
 

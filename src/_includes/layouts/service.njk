@@ -38,27 +38,55 @@ layout: layouts/base.njk
 }
 </script>
 {% endblock %}
-<div class="page-hero">
-  <div class="container">
-    <p class="crumb"><a href="/">Home</a> / <a href="/services/">Services</a> / {{ title }}</p>
-    <h1>{{ heading or title }}</h1>
-    {% if lede %}<p class="lede">{{ lede }}</p>{% endif %}
-  </div>
-</div>
-<div class="section">
-  <div class="container prose">
-    {% if photo %}<figure class="service-photo"><img src="{{ photo }}" alt="{{ photoAlt }}" loading="lazy"></figure>{% endif %}
-    {{ content | safe }}
-    <div class="reviews-band" style="margin-top:2.6rem">
-      <div>
-        <div class="rating">5.0</div>
-        <div class="stars">{% for i in range(0,5) %}{{ icons.star | safe }}{% endfor %}</div>
+
+<div class="page-hero svc-hero">
+  <div class="container svc-hero-grid">
+    <div>
+      <p class="crumb"><a href="/">Home</a> / <a href="/services/">Services</a> / {{ title }}</p>
+      <h1>{{ heading or title }}</h1>
+      {% if lede %}<p class="lede">{{ lede }}</p>{% endif %}
+      <div class="hero-actions" style="margin-top:1.6rem">
+        <a class="btn btn-accent" href="#quote">Get a free quote</a>
+        <a class="btn btn-ghost" href="tel:{{ site.phone }}">Call {{ site.phoneDisplay }}</a>
       </div>
-      <p>Fixed written quotes from the licensed electricians who do the work — rated 5.0 on Google.</p>
-      <a class="btn btn-accent" href="/contact/">Get a free quote</a>
+      <p class="svc-trust">5.0★ on Google · SAA accredited · 5-year workmanship warranty</p>
     </div>
+    {% if photo %}
+    <figure class="svc-hero-photo">
+      <img src="{{ photo }}" alt="{{ photoAlt }}" fetchpriority="high">
+    </figure>
+    {% endif %}
   </div>
 </div>
+
+<div class="section">
+  <div class="container svc-grid">
+    <div class="svc-main">
+      {% if includes %}
+      <h2 class="svc-inc-title">What's included</h2>
+      <div class="inc-grid">
+        {% for i in includes %}
+        <div class="inc-card"><strong>{{ i.t }}</strong>{% if i.d %}<span>{{ i.d }}</span>{% endif %}</div>
+        {% endfor %}
+      </div>
+      {% endif %}
+      <div class="prose">
+        {{ content | safe }}
+      </div>
+    </div>
+    <aside class="svc-side" id="quote">
+      {% include "quote-widget.njk" %}
+      <div class="svc-amrit">
+        <img src="/assets/img/brand/amrit-singh-thapa-gigawatt-energy-electrician.jpg" alt="Amrit Singh Thapa, 'A' Grade Electrician" loading="lazy">
+        <div>
+          <strong>Designed &amp; signed off by Amrit Singh Thapa</strong>
+          <span>'A' Grade Electrician · SAA Accredited · Tesla &amp; Sigenergy certified</span>
+        </div>
+      </div>
+    </aside>
+  </div>
+</div>
+
 {% if faqs %}
 <div class="section section-alt">
   <div class="container">
