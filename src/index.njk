@@ -42,33 +42,7 @@ permalink: /
   </div>
 </section>
 
-<section class="section">
-  <div class="container">
-    <div class="section-head">
-      <p class="kicker">Award-winning work</p>
-      <h2>Four years an Excellence Awards finalist — and counting</h2>
-      <p>Victoria's electrical industry has named us a finalist every year since 2023: Electrician of the Year in 2023, 2024, 2025 and 2026, Women in Contracting in 2024 and 2025, and Champion Awards Electrical Business in 2025. Awards don't install your solar — but the standards behind them do.</p>
-    </div>
-    <div class="award-wall">
-      <figure><img src="{{ images.award2023.src }}" alt="{{ images.award2023.alt }}" loading="lazy"><figcaption>Electrician of the Year<br>Finalist 2023</figcaption></figure>
-      <figure><img src="{{ images.award2024.src }}" alt="{{ images.award2024.alt }}" loading="lazy"><figcaption>Electrician of the Year<br>Finalist 2024</figcaption></figure>
-      <figure><img src="{{ images.awardWic24.src }}" alt="{{ images.awardWic24.alt }}" loading="lazy"><figcaption>Women in Contracting<br>Finalist 2024</figcaption></figure>
-      <figure><img src="{{ images.award2025.src }}" alt="{{ images.award2025.alt }}" loading="lazy"><figcaption>Electrician of the Year<br>Finalist 2025</figcaption></figure>
-      <figure><img src="{{ images.awardWic25.src }}" alt="{{ images.awardWic25.alt }}" loading="lazy"><figcaption>Women in Contracting<br>Finalist 2025</figcaption></figure>
-      <figure><img src="{{ images.awardChamp.src }}" alt="{{ images.awardChamp.alt }}" loading="lazy"><figcaption>Champion Awards<br>Electrical Business 2025</figcaption></figure>
-    </div>
-  </div>
-</section>
 
-<section class="stats-band">
-  <div class="container">
-    <div class="stats">
-      {% for s in site.stats %}
-      <div class="stat"><div class="num">{{ s.value }}</div><div class="lbl">{{ s.label }}</div></div>
-      {% endfor %}
-    </div>
-  </div>
-</section>
 
 <section class="section section-alt">
   <div class="container who-grid">
@@ -170,10 +144,38 @@ permalink: /
       </div>
       <div class="card" style="background:var(--ink);color:#fff;border:0">
         <div class="card-icon" style="background:rgba(242,160,31,.25);color:var(--accent)">{{ icons.chat | safe }}</div>
-        <h3 style="color:#fff">Not sure what you need?</h3>
-        <p style="color:#b9c4cb">Tell us about your home and bills, and we'll design the right system — no pushy sales, just an electrician's honest advice.</p>
-        <a class="card-link" href="/contact/" style="color:var(--accent)">Get a free quote</a>
+        <h3 style="color:#fff">What could you save?</h3>
+        <p style="color:#b9c4cb">Enter your quarterly bill and get a sized system, savings and payback range in ten seconds — no details required.</p>
+        <a class="card-link" href="/solar-savings-calculator/" style="color:var(--accent)">Try the savings calculator</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <p class="kicker">Award-winning work</p>
+      <h2>Four years an Excellence Awards finalist — and counting</h2>
+      <p>Victoria's electrical industry has named us a finalist every year since 2023: Electrician of the Year in 2023, 2024, 2025 and 2026, Women in Contracting in 2024 and 2025, and Champion Awards Electrical Business in 2025. Awards don't install your solar — but the standards behind them do.</p>
+    </div>
+    <div class="award-wall">
+      <figure><img src="{{ images.award2023.src }}" alt="{{ images.award2023.alt }}" loading="lazy"><figcaption>Electrician of the Year<br>Finalist 2023</figcaption></figure>
+      <figure><img src="{{ images.award2024.src }}" alt="{{ images.award2024.alt }}" loading="lazy"><figcaption>Electrician of the Year<br>Finalist 2024</figcaption></figure>
+      <figure><img src="{{ images.awardWic24.src }}" alt="{{ images.awardWic24.alt }}" loading="lazy"><figcaption>Women in Contracting<br>Finalist 2024</figcaption></figure>
+      <figure><img src="{{ images.award2025.src }}" alt="{{ images.award2025.alt }}" loading="lazy"><figcaption>Electrician of the Year<br>Finalist 2025</figcaption></figure>
+      <figure><img src="{{ images.awardWic25.src }}" alt="{{ images.awardWic25.alt }}" loading="lazy"><figcaption>Women in Contracting<br>Finalist 2025</figcaption></figure>
+      <figure><img src="{{ images.awardChamp.src }}" alt="{{ images.awardChamp.alt }}" loading="lazy"><figcaption>Champion Awards<br>Electrical Business 2025</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="stats-band">
+  <div class="container">
+    <div class="stats">
+      {% for s in site.stats %}
+      <div class="stat"><div class="num">{{ s.value }}</div><div class="lbl">{{ s.label }}</div></div>
+      {% endfor %}
     </div>
   </div>
 </section>

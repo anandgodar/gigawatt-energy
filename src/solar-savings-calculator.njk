@@ -1,0 +1,141 @@
+---
+layout: layouts/base.njk
+title: Solar Savings Calculator
+metaTitle: Solar Savings Calculator — Victoria 2026 Rebates & Payback
+metaDescription: "Free solar savings calculator for Victorian homes: enter your quarterly bill, see your recommended system size, estimated annual savings, rebates and payback range."
+permalink: /solar-savings-calculator/
+---
+{% block schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Solar Savings Calculator",
+  "applicationCategory": "UtilityApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "AUD" },
+  "provider": { "@id": "{{ site.url }}/#business" }
+}
+</script>
+{% endblock %}
+<div class="page-hero">
+  <div class="container">
+    <p class="crumb"><a href="/">Home</a> / Solar Savings Calculator</p>
+    <h1>What could solar save you?</h1>
+    <p class="lede">Enter your quarterly bill and get a sized system, estimated savings and payback range for a Victorian home — in ten seconds, no details required.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container calc-grid">
+    <div class="calc-card">
+      <h2 style="font-size:1.3rem;margin-bottom:1.2rem">Your household</h2>
+      <div class="qw-row">
+        <label for="c-bill">Average quarterly electricity bill: <output id="c-bill-out">$700</output></label>
+        <input id="c-bill" type="range" min="200" max="1500" step="50" value="700">
+      </div>
+      <div class="qw-row">
+        <span class="qw-mini-label">When is your home using most power?</span>
+        <div class="qw-inline">
+          <label class="qw-pill"><input type="radio" name="c-day" value="day"><span>Daytime</span></label>
+          <label class="qw-pill"><input type="radio" name="c-day" value="mixed" checked><span>Mixed</span></label>
+          <label class="qw-pill"><input type="radio" name="c-day" value="evening"><span>Evenings</span></label>
+        </div>
+      </div>
+      <div class="qw-row">
+        <span class="qw-mini-label">Add a battery with backup?</span>
+        <div class="qw-inline">
+          <label class="qw-pill"><input type="radio" name="c-batt" value="yes" checked><span>Yes</span></label>
+          <label class="qw-pill"><input type="radio" name="c-batt" value="no"><span>Solar only</span></label>
+        </div>
+      </div>
+      <div class="qw-row">
+        <span class="qw-mini-label">Planning an EV in the next few years?</span>
+        <div class="qw-inline">
+          <label class="qw-pill"><input type="radio" name="c-ev" value="no" checked><span>No</span></label>
+          <label class="qw-pill"><input type="radio" name="c-ev" value="yes"><span>Yes</span></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="calc-results" aria-live="polite">
+      <h2 style="font-size:1.3rem;margin-bottom:1.2rem">Your estimate</h2>
+      <div class="calc-stat"><span class="cs-label">Recommended system</span><span class="cs-value" id="r-system">—</span></div>
+      <div class="calc-stat"><span class="cs-label">Estimated annual savings</span><span class="cs-value accent" id="r-savings">—</span></div>
+      <div class="calc-stat"><span class="cs-label">Indicative cost after rebates</span><span class="cs-value" id="r-cost">—</span></div>
+      <div class="calc-stat"><span class="cs-label">Estimated payback</span><span class="cs-value" id="r-payback">—</span></div>
+      <p class="calc-note" id="r-note"></p>
+      <div style="display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.4rem">
+        <a class="btn btn-accent" href="/contact/">Get my exact fixed quote</a>
+      </div>
+      <form class="calc-email" id="calc-email-form">
+        <label for="c-email" style="font-weight:600;font-size:.9rem">Email me this estimate</label>
+        <div class="calc-email-row">
+          <input id="c-email" type="email" placeholder="you@example.com" required>
+          <button class="btn btn-dark" type="submit">Send</button>
+        </div>
+        <p class="form-note" id="c-email-msg">We'll send your numbers — no spam, ever.</p>
+      </form>
+    </div>
+  </div>
+
+  <div class="container" style="margin-top:2.5rem">
+    <div class="faq" style="max-width:860px">
+      <details>
+        <summary>How these estimates are calculated (assumptions)</summary>
+        <p>Usage is estimated from your bill at a typical Victorian rate of ~32c/kWh. Generation assumes ~3.6 kWh per kW per day averaged over a Melbourne year. Solar-only savings assume 50–70% bill offset depending on your daytime usage; adding a battery lifts that to 80–95%. Indicative costs reflect typical installed prices after the federal STC incentive and, for batteries, the federal battery program — current Solar Victoria programs may reduce costs further for eligible homes. These are estimates for comparison only: your fixed written quote is based on your actual roof, switchboard and bills.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var bill=document.getElementById('c-bill'),out=document.getElementById('c-bill-out');
+  function val(n){var e=document.querySelector('[name='+n+']:checked');return e?e.value:'';}
+  function fmt(x){return '$'+Math.round(x).toLocaleString();}
+  function calc(){
+    var b=+bill.value; out.textContent='$'+b;
+    var annual=b*4, kwh=annual/0.32, day=val('c-day'), batt=val('c-batt')==='yes', ev=val('c-ev')==='yes';
+    var size=Math.min(13.2, Math.max(6.6, kwh/1300 + (ev?1.5:0)));
+    size=size<=7.5?6.6:(size<=11?9.9:13.2);
+    var offLo, offHi;
+    if(batt){offLo=.8;offHi=.95;}
+    else if(day==='day'){offLo=.6;offHi=.75;}
+    else if(day==='mixed'){offLo=.5;offHi=.65;}
+    else{offLo=.4;offHi=.55;}
+    var sLo=annual*offLo, sHi=annual*offHi;
+    var cLo,cHi;
+    if(size===6.6){cLo=4500;cHi=6500;} else if(size===9.9){cLo=6500;cHi=9000;} else {cLo=8500;cHi=11500;}
+    if(batt){cLo+=8000;cHi+=11500;}
+    var pbLo=cLo/sHi, pbHi=cHi/sLo;
+    document.getElementById('r-system').textContent=size+' kWp solar'+(batt?' + battery with backup':'');
+    document.getElementById('r-savings').textContent=fmt(sLo)+' – '+fmt(sHi)+' / year';
+    document.getElementById('r-cost').textContent=fmt(cLo)+' – '+fmt(cHi);
+    document.getElementById('r-payback').textContent=pbLo.toFixed(1)+' – '+pbHi.toFixed(1)+' years';
+    document.getElementById('r-note').textContent=batt
+      ?'Includes blackout backup. Battery rebates applied; Solar Victoria programs may lower cost further for eligible homes.'
+      :'Solar-only. Adding a battery later is possible — we design switchboards battery-ready.';
+    return {bill:b,system:document.getElementById('r-system').textContent,
+      savings:document.getElementById('r-savings').textContent,
+      cost:document.getElementById('r-cost').textContent,
+      payback:document.getElementById('r-payback').textContent};
+  }
+  document.querySelectorAll('#c-bill,[name=c-day],[name=c-batt],[name=c-ev]').forEach(function(e){
+    e.addEventListener('input',calc);e.addEventListener('change',calc);});
+  calc();
+  document.getElementById('calc-email-form').addEventListener('submit',function(e){
+    e.preventDefault();
+    var em=document.getElementById('c-email').value,msg=document.getElementById('c-email-msg');
+    if(!/.+@.+\..+/.test(em)){msg.textContent='Please enter a valid email.';return;}
+    var est=calc(); est.email=em; est.type='estimate';
+    fetch('/api/estimate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(est)})
+      .then(function(r){return r.ok?r.json():Promise.reject();})
+      .then(function(res){msg.textContent=res.emailed?'Sent! Check your inbox.':'Saved — we\'ll be in touch with your estimate.';})
+      .catch(function(){
+        location.href='mailto:{{ site.email }}?subject='+encodeURIComponent('My solar savings estimate')+
+          '&body='+encodeURIComponent('Please send my estimate.\n'+est.system+'\nSavings: '+est.savings+'\nCost: '+est.cost+'\nPayback: '+est.payback+'\nQuarterly bill: $'+est.bill);
+        msg.textContent='We opened an email for you — just press send.';});
+  });
+})();
+</script>
