@@ -1,6 +1,6 @@
 // POST /api/estimate — emails the visitor their calculator estimate and
 // notifies the team of a warm lead. Same Resend setup as /api/quote.
-import { TEAM_EMAIL, FROM, json, sendEmail, saveLead } from "../_lib.js";
+import { TEAM_EMAIL, FROM, json, sendViaEnv, emailConfigured, saveLead } from "../_lib.js";
 
 export async function onRequestPost(context) {
   let d;
@@ -9,8 +9,7 @@ export async function onRequestPost(context) {
 
   await saveLead(context.env, { email: d.email, name: d.email.split("@")[0], bill: d.bill, service: d.system }, "calculator");
 
-  const key = context.env.RESEND_API_KEY;
-  if (!key) return json({ ok:true, emailed:false });
+  if (!emailConfigured(context.env)) return json({ ok:true, emailed:false });
 
   const body =
     `Here's your solar savings estimate from Gigawatt Energy:\n\n` +
@@ -22,7 +21,7 @@ export async function onRequestPost(context) {
     `Gigawatt Energy — family-run, SAA-accredited installer, Mickleham VIC\n` +
     `gigawattenergy.com.au`;
 
-  const send = (p) => sendEmail(key, p);
+  const send = (p) => sendViaEnv(context.env, p);
 
   const results = await Promise.allSettled([
     send({ from: FROM, to: [d.email], subject: "Your solar savings estimate | Gigawatt Energy", text: body }),

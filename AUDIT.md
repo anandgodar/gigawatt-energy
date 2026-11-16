@@ -13,6 +13,7 @@
 - [x] D1 database `gigawatt-leads` created (Sydney) with schema applied
 - [ ] Cloudflare Pages → gigawatt-energy → Settings → Bindings: add **D1 binding** named `LEADS` → database `gigawatt-leads`
 - [ ] Cloudflare Pages env var `CRON_SECRET` (any long random string) — same value as the GitHub Actions secret `CRON_SECRET`
+- Email provider is pluggable (functions/_lib.js): today = Resend via `RESEND_API_KEY` (free, any DNS host). Post-launch alternative = Cloudflare Email Service: needs Workers Paid plan (~$5/mo) AND the domain on Cloudflare DNS, then onboard it (Email Service → Sending) and add a `send_email` binding named `EMAIL` to this Pages project — no code change needed, binding wins automatically
 - [ ] Optional: `BOOKING_URL` env var (free Cal.com link for Amrit) — adds "book a call" to all emails + thank-you
 - [ ] At launch (domain on Cloudflare): add Email Routing + an Email Worker on quotes@ to auto-stop sequences when a customer replies
 - How it works: every wizard/calculator lead is stored; GitHub Actions hits `/api/cron` daily (~9:37am Melbourne); drip = Day 1 "what happens next", Day 3 Amrit/proof, Day 7 final check-in, then stops forever; every email has a one-click stop link (`/api/unsubscribe`)

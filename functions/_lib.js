@@ -6,6 +6,39 @@ export const SITE = "https://gigawattenergy.com.au";
 export const json = (o, s = 200) =>
   new Response(JSON.stringify(o), { status: s, headers: { "Content-Type": "application/json" } });
 
+// Provider-agnostic sender. Uses, in order:
+// 1. Cloudflare Email Service binding `EMAIL` (send_email) — requires Workers
+//    Paid plan + domain onboarded on Cloudflare DNS (post-launch option)
+// 2. Resend HTTP API via RESEND_API_KEY (current provider)
+// Payload shape is Resend-style: { from, to:[..], reply_to?, subject, text }.
+export async function sendViaEnv(env, payload) {
+  if (env.EMAIL) {
+    try {
+      const m = /^(.*)<(.+)>$/.exec(payload.from || "");
+      await env.EMAIL.send({
+        from: m ? { email: m[2].trim(), name: m[1].trim() } : { email: payload.from },
+        to: (payload.to || []).map((e) => ({ email: e })),
+        ...(payload.reply_to ? { replyTo: { email: payload.reply_to } } : {}),
+        subject: payload.subject,
+        text: payload.text,
+      });
+      return { ok: true };
+    } catch (e) {
+      return { ok: false };
+    }
+  }
+  if (env.RESEND_API_KEY) {
+    return fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: { Authorization: `Bearer ${env.RESEND_API_KEY}`, "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+  }
+  return { ok: false, unconfigured: true };
+}
+export const emailConfigured = (env) => !!(env.EMAIL || env.RESEND_API_KEY);
+
+// Back-compat wrapper (Resend by key)
 export const sendEmail = (key, payload) =>
   fetch("https://api.resend.com/emails", {
     method: "POST",

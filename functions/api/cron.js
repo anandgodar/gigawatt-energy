@@ -6,7 +6,7 @@
 //   Day 1  — "what happens next" + booking link
 //   Day 3  — Amrit / proof / answer-objections
 //   Day 7  — final check-in; sequence ends (no email ever after step 3)
-import { FROM, TEAM_EMAIL, json, sendEmail, footer } from "../_lib.js";
+import { FROM, TEAM_EMAIL, json, sendViaEnv, emailConfigured, footer } from "../_lib.js";
 
 const STEPS = [
   { step: 1, afterDays: 1, subject: "Your Gigawatt Energy quote — what happens next",
@@ -51,7 +51,7 @@ export async function onRequestPost(context) {
   const auth = request.headers.get("Authorization") || "";
   if (!env.CRON_SECRET || auth !== `Bearer ${env.CRON_SECRET}`) return json({ ok: false }, 401);
   if (!env.LEADS) return json({ ok: false, error: "LEADS binding not configured" }, 500);
-  if (!env.RESEND_API_KEY) return json({ ok: true, sent: 0, note: "RESEND_API_KEY not set" });
+  if (!emailConfigured(env)) return json({ ok: true, sent: 0, note: "email provider not configured" });
 
   const base = new URL(request.url).origin;
   const booking = env.BOOKING_URL || "";
@@ -66,7 +66,7 @@ export async function onRequestPost(context) {
     const next = STEPS.find((s) => s.step === lead.last_step + 1);
     if (!next || ageDays < next.afterDays) continue;
     const firstName = (lead.name || "there").trim().split(/\s+/)[0];
-    const r = await sendEmail(env.RESEND_API_KEY, {
+    const r = await sendViaEnv(env, {
       from: FROM, to: [lead.email], reply_to: TEAM_EMAIL,
       subject: next.subject,
       text: next.body(firstName, booking) + footer(base, lead.id, lead.stop_token, booking),
