@@ -1,12 +1,13 @@
 // POST /api/estimate — emails the visitor their calculator estimate and
 // notifies the team of a warm lead. Same Resend setup as /api/quote.
-const TEAM_EMAIL = "info@gigawattenergy.com.au";
-const FROM = "Gigawatt Energy <quotes@gigawattenergy.com.au>";
+import { TEAM_EMAIL, FROM, json, sendEmail, saveLead } from "../_lib.js";
 
 export async function onRequestPost(context) {
   let d;
   try { d = await context.request.json(); } catch { return json({ ok:false }, 400); }
   if (!d.email || !/.+@.+\..+/.test(d.email)) return json({ ok:false, error:"bad email" }, 400);
+
+  await saveLead(context.env, { email: d.email, name: d.email.split("@")[0], bill: d.bill, service: d.system }, "calculator");
 
   const key = context.env.RESEND_API_KEY;
   if (!key) return json({ ok:true, emailed:false });
@@ -21,11 +22,7 @@ export async function onRequestPost(context) {
     `Gigawatt Energy — family-run, SAA-accredited installer, Mickleham VIC\n` +
     `gigawattenergy.com.au`;
 
-  const send = (p) => fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
-    body: JSON.stringify(p),
-  });
+  const send = (p) => sendEmail(key, p);
 
   const results = await Promise.allSettled([
     send({ from: FROM, to: [d.email], subject: "Your solar savings estimate | Gigawatt Energy", text: body }),
@@ -36,4 +33,3 @@ export async function onRequestPost(context) {
   return json({ ok:true, emailed: results.every(r => r.status==="fulfilled" && r.value.ok) });
 }
 
-const json = (o, s=200) => new Response(JSON.stringify(o), { status:s, headers:{ "Content-Type":"application/json" } });

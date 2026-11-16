@@ -9,6 +9,14 @@
 - [ ] **301 redirect map** from old WordPress URLs not yet deployed (list in README).
 - [ ] **Facts to confirm with owner**: 1,600+ installs figure, award list incl. 2026 finalist, all credentials current (REC-32099, SAA, NETCC, Tesla, Sigenergy, Solar Victoria), rebate wording still accurate at launch date.
 
+## Follow-up engine (new) — activation steps
+- [x] D1 database `gigawatt-leads` created (Sydney) with schema applied
+- [ ] Cloudflare Pages → gigawatt-energy → Settings → Bindings: add **D1 binding** named `LEADS` → database `gigawatt-leads`
+- [ ] Cloudflare Pages env var `CRON_SECRET` (any long random string) — same value as the GitHub Actions secret `CRON_SECRET`
+- [ ] Optional: `BOOKING_URL` env var (free Cal.com link for Amrit) — adds "book a call" to all emails + thank-you
+- [ ] At launch (domain on Cloudflare): add Email Routing + an Email Worker on quotes@ to auto-stop sequences when a customer replies
+- How it works: every wizard/calculator lead is stored; GitHub Actions hits `/api/cron` daily (~9:37am Melbourne); drip = Day 1 "what happens next", Day 3 Amrit/proof, Day 7 final check-in, then stops forever; every email has a one-click stop link (`/api/unsubscribe`)
+
 ## What was verified in this build
 
 - All 15 pages build cleanly (Eleventy 3.1.8)

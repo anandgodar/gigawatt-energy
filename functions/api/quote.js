@@ -8,8 +8,7 @@
 // Until the key is set, the function still accepts the lead and returns
 // { ok:true, emailed:false } — the widget then falls back to its mailto flow.
 
-const TEAM_EMAIL = "info@gigawattenergy.com.au";
-const FROM = "Gigawatt Energy <quotes@gigawattenergy.com.au>";
+import { TEAM_EMAIL, FROM, json, sendEmail, saveLead, footer } from "../_lib.js";
 
 export async function onRequestPost(context) {
   let data;
@@ -27,8 +26,10 @@ export async function onRequestPost(context) {
   }
   if (!/.+@.+\..+/.test(data.email)) return json({ ok: false, error: "bad email" }, 400);
 
+  const lead = await saveLead(context.env, data, "quote-wizard");
+
   const key = context.env.RESEND_API_KEY;
-  if (!key) return json({ ok: true, emailed: false });
+  if (!key) return json({ ok: true, emailed: false, stored: !!lead });
 
   const firstName = String(data.name).trim().split(/\s+/)[0];
   const summary = [
@@ -44,12 +45,9 @@ export async function onRequestPost(context) {
     `Best time to call: ${data.callback || "Anytime"}`,
   ].join("\n");
 
-  const send = (payload) =>
-    fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    });
+  const send = (payload) => sendEmail(key, payload);
+  const base = new URL(context.request.url).origin;
+  const extra = lead ? footer(base, lead.id, lead.token, context.env.BOOKING_URL || "") : "";
 
   const results = await Promise.allSettled([
     // 1) Notification to the team
@@ -80,8 +78,3 @@ export async function onRequestPost(context) {
   return json({ ok: true, emailed });
 }
 
-const json = (obj, status = 200) =>
-  new Response(JSON.stringify(obj), {
-    status,
-    headers: { "Content-Type": "application/json" },
-  });

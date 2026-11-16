@@ -1,0 +1,14 @@
+name: Lead follow-up drip
+on:
+  schedule:
+    - cron: "37 22 * * *"   # 22:37 UTC = ~9:37am Melbourne — good send time
+  workflow_dispatch: {}      # manual trigger for testing
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger follow-up processor
+        run: |
+          curl -fsS -X POST \
+            -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
+            https://gigawatt-energy.pages.dev/api/cron
