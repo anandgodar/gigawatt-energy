@@ -18,7 +18,9 @@ Full-bleed, seamless 9.6s loop cut from the owner's brand film, telling the head
 |---|---|
 | Hero bg (night edge) | `#070d11` |
 | Ink | `#fff`, steps 100 / 80 / 60 / 40 % |
-| Accent (CTA fill, active scene dot, chip icons — 3 uses only) | `#f2a01f` |
+| Accent (active scene dot, chip icons) | `#fd9101` — logo orange |
+| Primary CTA fill | logo gradient `#fd9101 → #fe5608` |
+| Wordmark "Energy" over film | `#fe5608` — logo orange-red |
 | Scrim | bottom `rgba(7,13,17,.92)` → `.55` @35% → 0 @65%; left `rgba(7,13,17,.55)` → 0 @58% |
 | Grain | SVG fractal noise, opacity .07, `mix-blend-mode: overlay` |
 | Glass material | `rgba(255,255,255,.06)` + `backdrop-filter: blur(14px) saturate(140%)`, 1px inner highlight, masked gradient edge |
@@ -41,3 +43,7 @@ Bricolage Grotesque variable (self-hosted woff2).
   0.8s each, `cubic-bezier(0.22,1,0.36,1)`. CSS-only (no JS dependency → nothing stuck at opacity 0).
 - Video pauses off-screen (IntersectionObserver). `prefers-reduced-motion`: no autoplay, poster only, no entrance animation.
 - Hovers: chip lift −1px + bg 6→14%, 200ms; `:active` scale .97.
+
+
+## Brand palette (from the logo — single source of truth in `:root` of main.css)
+`--brand #fe5608` · `--brand-orange #fd9101` · `--brand-gold #fabb05` · `--brand-ui #f65307` (icons on light, 3:1) · `--brand-deep #b83a00` (text on light, 5.2:1) · `--ink #141211` · dark sections `--dusk #171311`. No green, no navy.
