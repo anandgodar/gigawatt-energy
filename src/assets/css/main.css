@@ -66,29 +66,10 @@ h3{font-size:1.15rem;font-weight:600}
 }
 
 /* Hero — dusk backdrop, quote widget as the hero */
-.hero{background:linear-gradient(175deg,rgba(9,21,29,.94) 0%,rgba(12,32,44,.92) 60%,rgba(14,42,56,.95) 100%),url(/assets/img/brand/melbourne-north-rooftop-solar-aerial.jpg) center 30%/cover no-repeat;color:#fff;padding:4.2rem 0 4.4rem;position:relative;overflow:hidden}
-.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(560px 560px at 88% 120%,rgba(242,160,31,.18),transparent 60%);pointer-events:none}
-.hero .container{position:relative;z-index:1}
-.hero-grid{display:grid;grid-template-columns:1.1fr minmax(360px,460px);grid-template-areas:"head widget" "rest widget";column-gap:3.4rem;align-items:center}
-.hero-head{grid-area:head;align-self:end}
-.hero-widget{grid-area:widget}
-.hero-rest{grid-area:rest;align-self:start}
-.hero-rest .lede{margin-top:1.3rem}
 @media(max-width:920px){
-  .hero{padding:2.6rem 0 3rem}
-  .hero-grid{grid-template-columns:1fr;grid-template-areas:"head" "widget" "rest";gap:0}
-  .hero-head h1{font-size:clamp(2rem,8vw,2.5rem)}
-  .hero-widget{margin:1.4rem 0 1.8rem}
-  .hero-rest .lede{margin-top:0}
   .quote-widget{padding:1.3rem 1.2rem 1.2rem}
 }
-.hero .kicker{color:var(--accent);font-weight:700;font-size:1.18rem;margin-bottom:1rem;font-family:var(--display)}
-.hero p.lede{max-width:580px;margin:1.3rem 0 2rem;color:#d6dde1;font-size:1.12rem}
 .hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
-.hero-points{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2.4rem;padding-top:1.7rem;border-top:1px solid rgba(255,255,255,.15)}
-@media(max-width:560px){.hero-points{grid-template-columns:1fr 1fr}}
-.hero-points span{color:#cfd8dc;font-size:.95rem}
-.hero-points strong{display:block;color:#fff;font-size:1.05rem;font-family:var(--display)}
 
 /* Sections */
 .section{padding:4.2rem 0}
@@ -322,7 +303,6 @@ h3{font-size:1.15rem;font-weight:600}
 .qw-error{color:#b3261e;font-size:.86rem;margin-top:.6rem}
 .qw-note{font-size:.8rem;color:var(--ink-soft);margin-top:.9rem}
 .qw-done h3{margin-bottom:.5rem}
-.hero .hero-trust{margin-top:1.6rem;font-size:.88rem;color:#b9c9d1}
 
 /* Forms */
 .form-grid{display:grid;gap:1rem;max-width:640px}
@@ -342,7 +322,7 @@ tr:last-child td{border-bottom:0}
    Motion hero — see docs/hero-spec.md
    ========================================================= */
 .mhero{--hbg:#070d11;--ease:cubic-bezier(.22,1,.36,1);position:relative;height:100vh;height:100dvh;min-height:640px;
-  background:var(--hbg) url(/assets/img/brand/gigawatt-energy-hero-loop-poster.jpg) center/cover no-repeat;color:#fff;overflow:hidden;isolation:isolate}
+  background-color:var(--hbg);background-image:url(/assets/img/brand/gigawatt-energy-hero-loop-poster.jpg);background-image:image-set(url(/assets/img/brand/gigawatt-energy-hero-loop-poster.webp) type("image/webp"),url(/assets/img/brand/gigawatt-energy-hero-loop-poster.jpg) type("image/jpeg"));background-position:center;background-size:cover;background-repeat:no-repeat;color:#fff;overflow:hidden;isolation:isolate}
 .mhero-media{position:absolute;inset:0;z-index:-3;overflow:hidden}
 .mhero-video{width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.06)}
 .mhero.is-playing .mhero-video{opacity:1;transform:scale(1);transition:opacity .8s ease,transform 1.8s var(--ease)}
@@ -356,10 +336,10 @@ tr:last-child td{border-bottom:0}
 .mhero-copy{max-width:46rem}
 .mhero-eyebrow{font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.86);margin-bottom:18px}
 .mhero-eyebrow,.mhero-sub,.mhero-call,.scene-place{text-shadow:0 1px 12px rgba(7,13,17,.75)}
-.mhero-title{font-family:var(--display);font-size:clamp(2.6rem,7.4vw,7.4rem);font-weight:500;line-height:.92;letter-spacing:-.045em;margin:0 0 22px;text-wrap:initial}
+.mhero-title{font-family:var(--display);font-size:clamp(2.6rem,min(7.4vw,11.2vh),7.4rem);font-weight:500;line-height:.92;letter-spacing:-.045em;margin:0 0 22px;text-wrap:initial}
 .mh-line{display:block;overflow:hidden;padding-bottom:.06em;margin-bottom:-.06em}
 .mh-line>span{display:block;white-space:nowrap;animation:mhRise .9s var(--ease) var(--d,0s) both}
-.mhero-sub{font-size:17px;line-height:1.55;color:rgba(255,255,255,.8);max-width:34rem;margin-bottom:26px}
+.mhero-sub{font-size:17px;line-height:1.55;color:rgba(255,255,255,.8);max-width:34rem;margin-bottom:26px;text-wrap:balance}
 .mh-in{animation:mhIn .8s var(--ease) var(--d,0s) both}
 @keyframes mhRise{from{transform:translateY(110%)}to{transform:none}}
 @keyframes mhIn{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
@@ -417,6 +397,20 @@ tr:last-child td{border-bottom:0}
   background:#fff;color:var(--ink);font-size:24px;line-height:1;box-shadow:0 4px 14px rgba(0,0,0,.25)}
 .qd-close:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 
+#film{scroll-margin-top:90px}
+@media (min-width:901px) and (max-height:820px){
+  .mhero-inner{padding-bottom:34px}
+  .mhero-eyebrow{margin-bottom:12px}
+  .mhero-title{margin-bottom:16px}
+  .mhero-sub{margin-bottom:18px;font-size:16px}
+  .mhero-quote{padding:12px 12px 10px}
+  .mq-label{margin-bottom:9px}
+  .mq-chip{min-height:42px}
+  .mhero-call{margin-top:11px}
+}
+@media (min-width:561px) and (max-width:900px){
+  .mhero-title{font-size:clamp(3.2rem,9.6vw,5.2rem)}
+}
 @media (max-width:900px){
   .mhero-inner{padding:0 24px 32px}
   .mhero-scene{display:none}

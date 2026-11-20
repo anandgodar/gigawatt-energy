@@ -8,7 +8,6 @@ permalink: /
 <section class="mhero" aria-label="Gigawatt Energy — solar, battery and backup installers">
   <div class="mhero-media" aria-hidden="true">
     <video class="mhero-video" muted loop playsinline preload="metadata"
-      poster="/assets/img/brand/gigawatt-energy-hero-loop-poster.jpg"
       data-src="/assets/video/gigawatt-energy-solar-day-to-night-hero-loop.mp4"></video>
   </div>
   <div class="mhero-scrim" aria-hidden="true"></div>
@@ -55,6 +54,7 @@ permalink: /
   var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var saveData=navigator.connection&&navigator.connection.saveData;
   if(v && !reduce && !saveData){
+    v.muted=true; v.defaultMuted=true; v.setAttribute('muted','');
     v.src=v.dataset.src;
     v.addEventListener('playing',function(){hero.classList.add('is-playing');},{once:true});
     var tryPlay=function(){var p=v.play();if(p&&p.catch)p.catch(function(){});};
