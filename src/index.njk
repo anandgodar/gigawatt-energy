@@ -5,26 +5,85 @@ metaTitle: Solar Panel, Battery & EV Charger Installation Melbourne
 metaDescription: "Melbourne's north's #1-rated solar installer — 5.0★ on Google, 4-year award finalist, Tesla & Sigenergy certified. Family-run in Mickleham. Free quotes."
 permalink: /
 ---
-<section class="hero">
-  <div class="container">
-    <div class="hero-grid">
-      <div class="hero-head">
-        <p class="kicker">Melbourne's north's #1-rated solar &amp; battery installer — 5.0★ on Google</p>
-        <h1>The house that stays lit</h1>
-      </div>
-      <div class="hero-widget">{% include "quote-widget.njk" %}</div>
-      <div class="hero-rest">
-        <p class="lede">Solar by day, battery by night, backup through blackouts — designed and installed by the award-recognised, family-run electricians of Mickleham. 1,600+ systems on Melbourne roofs, and the licensed electrician who quotes your job is the one who installs it.</p>
-        <div class="hero-points">
-          <span><strong>5.0★ Google rating</strong>from verified reviews</span>
-          <span><strong>Excellence Awards finalist</strong>four years running</span>
-          <span><strong>Tesla &amp; Sigenergy</strong>certified battery installer</span>
+<section class="mhero" aria-label="Gigawatt Energy — solar, battery and backup installers">
+  <div class="mhero-media" aria-hidden="true">
+    <video class="mhero-video" muted loop playsinline preload="metadata"
+      data-src="/assets/video/gigawatt-energy-solar-day-to-night-hero-loop.mp4"></video>
+  </div>
+  <div class="mhero-scrim" aria-hidden="true"></div>
+  <div class="mhero-grain" aria-hidden="true"></div>
+
+  <div class="mhero-inner">
+    <div class="mhero-copy">
+      <p class="mhero-eyebrow mh-in" style="--d:.1s"><span class="nb">5.0★ on Google</span> · <span class="nb"><span class="mh-hide-sm">Excellence Awards finalist</span><span class="mh-show-sm">Award finalist</span> 2023–2026</span></p>
+      <h1 class="mhero-title">
+        <span class="mh-line"><span style="--d:.2s">The house</span></span>
+        <span class="mh-line"><span style="--d:.32s">that stays lit.</span></span>
+      </h1>
+      <p class="mhero-sub mh-in" style="--d:.5s">Solar by day, battery by night, backup when the grid goes dark — designed and installed by Amrit Singh Thapa's award-finalist team in Mickleham.</p>
+
+      <div class="mhero-quote glass mh-in" style="--d:.65s" role="group" aria-labelledby="mq-label">
+        <p class="mq-label" id="mq-label">Get a free quote — <span>what do you need?</span></p>
+        <div class="mq-chips">
+          <button type="button" class="mq-chip" data-service="Solar panels">{{ icons.panel | safe }}Solar panels</button>
+          <button type="button" class="mq-chip" data-service="Solar + battery">{{ icons.battery | safe }}Solar + battery</button>
+          <button type="button" class="mq-chip" data-service="Battery retrofit">{{ icons.retrofit | safe }}Add a battery</button>
+          <button type="button" class="mq-chip" data-service="EV charger">{{ icons.ev | safe }}EV charger</button>
+          <button type="button" class="mq-chip" data-service="Switchboard upgrade">{{ icons.switchboard | safe }}Switchboard</button>
+          <button type="button" class="mq-chip" data-service="Not sure yet">{{ icons.chat | safe }}Not sure yet</button>
         </div>
-        <p class="hero-trust">Prefer to talk? Call <a href="tel:{{ site.phone }}" style="color:#fff;font-weight:600">{{ site.phoneDisplay }}</a> — Mon–Fri, 8am–5pm.</p>
       </div>
+      <p class="mhero-call mh-in" style="--d:.8s">Prefer to talk? <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a><span class="sep">·</span><a href="#film">Watch the 2-minute film</a></p>
+    </div>
+
+    <div class="mhero-scene mh-in" style="--d:.9s" aria-hidden="true">
+      <ol class="scene-steps"><li data-scene="0">Day</li><li data-scene="1">Dusk</li><li data-scene="2">Night</li></ol>
+      <p class="scene-place">Mickleham, VIC · since {{ site.founded }}</p>
     </div>
   </div>
 </section>
+
+<dialog class="quote-dialog" id="quote-dialog" aria-label="Get a free quote">
+  <button type="button" class="qd-close" aria-label="Close quote form">&times;</button>
+  {% include "quote-widget.njk" %}
+</dialog>
+
+<script>
+(function(){
+  var v=document.querySelector('.mhero-video'), hero=document.querySelector('.mhero');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var saveData=navigator.connection&&navigator.connection.saveData;
+  if(v && !reduce && !saveData){
+    v.muted=true; v.defaultMuted=true; v.setAttribute('muted','');
+    v.src=v.dataset.src;
+    v.addEventListener('playing',function(){hero.classList.add('is-playing');},{once:true});
+    var tryPlay=function(){var p=v.play();if(p&&p.catch)p.catch(function(){});};
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(function(es){es.forEach(function(e){e.isIntersecting?tryPlay():v.pause();});},{threshold:.15}).observe(hero);
+    } else tryPlay();
+    // live day/dusk/night indicator, synced to the loop's three shots
+    var steps=[].slice.call(document.querySelectorAll('.scene-steps li')), last=-1;
+    v.addEventListener('timeupdate',function(){
+      // exact crossfade midpoints of the 9.63s loop: day->dusk 3.23s, dusk->night 6.47s, night->day 9.03s
+      var t=v.currentTime, i=t<3.23?0:(t<6.47?1:(t<9.03?2:0));
+      if(i!==last){steps.forEach(function(s,k){s.classList.toggle('on',k===i);});last=i;}
+    });
+  }
+  // quote: a chip = wizard step 1; open the dialog straight at step 2
+  var dlg=document.getElementById('quote-dialog');
+  if(!dlg||!dlg.showModal) return;
+  var w=dlg.querySelector('.quote-widget');
+  function openAt(service){
+    if(service){var r=w.querySelector('[name=service][value="'+service+'"]');if(r)r.checked=true;}
+    dlg.showModal();
+    if(service){var n=w.querySelector('[data-step="1"] .qw-next');if(n&&!w.querySelector('[data-step="1"]').hidden)n.click();}
+  }
+  document.querySelectorAll('.mq-chip').forEach(function(c){c.addEventListener('click',function(){openAt(c.dataset.service);});});
+  document.querySelectorAll('a.nav-cta, a.mobile-cta').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();openAt(null);});});
+  dlg.querySelector('.qd-close').addEventListener('click',function(){dlg.close();});
+  dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close();});
+})();
+</script>
 
 <section class="trust-strip">
   <div class="container">
@@ -87,7 +146,7 @@ permalink: /
   </div>
 </section>
 
-<section class="section section-alt">
+<section class="section section-alt" id="film">
   <div class="container">
     <div class="section-head">
       <p class="kicker">See us on the roof</p>
